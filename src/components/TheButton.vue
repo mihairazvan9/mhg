@@ -35,7 +35,7 @@
 <template>
   <a class="the-button" 
      :href="props.link"
-     :class="`${props.background} ${props.color} flex items-center gap-x-2 button-padding-x py-2.5 button-1 w-max button-radius`"
+     :class="`${props.background} ${props.color} flex flex-shrink-0 items-center gap-x-2 button-padding-x py-2.5 button-1 w-max button-radius`"
   >
     <!-- Left icon -->
     <i v-if="props.icon_left" 

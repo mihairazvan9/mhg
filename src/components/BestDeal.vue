@@ -14,11 +14,6 @@
         the search for you.
       </p>
     </div>
-    <a
-      href=""
-      class="flex-shrink-0 text-white button-1 bg-primary px-6 button-radius py-2"
-    >
-      Compare Credit Cards</a
-    >
+    <slot></slot>
   </div>
 </template>

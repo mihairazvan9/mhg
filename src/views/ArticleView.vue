@@ -1,8 +1,5 @@
 <script setup>
-  import ArticleThumbOne from "../assets/img/article-thumb-1.png";
-  import ArticleThumbTwo from "../assets/img/article-thumb-2.png";
-  import ArticleThumbThree from "../assets/img/article-thumb-3.png";
-  import ArrowRight from "../assets/img/arrow-right.svg";
+
 
 
   import { icons } from '@/assets/icons.js'
@@ -16,6 +13,8 @@
   import CTA from "@/components/CTA.vue"
   import BestDeal from "@/components/BestDeal.vue"
   import Author from "@/components/Author.vue"
+  import CardXL from "@/components/CardXL.vue"
+  import CardXXL from "@/components/CardXXL.vue"
   import ChipsCard from "@/components/ChipsCard.vue"
   import SpotLight from "@/components/SpotLight.vue"
   import TheFooter from "@/components/TheFooter.vue"
@@ -265,103 +264,19 @@
       
       <!-- Find the right credit card for you. -->
        <!-- TODO -->
-      <BestDeal />
+      <BestDeal>
+        <TheButton text="Compare Credit Cards" />
+      </BestDeal>
 
       <!-- Other articles -->
       <TheWrapper title="Other articles" simple>
         <div class="flex flex-col md:flex-row gap-md gap-t">
-          <div class="card-radius overflow-hidden bg-white shadow">
-            <div class="h-40 overflow-hidden">
-              <img
-                :src="ArticleThumbOne"
-                alt="thumbnail"
-                class="w-full h-full object-cover"
-              />
-            </div>
-            <div class="padding-x padding-y gap-sm flex flex-col gap-sm">
-              <div>
-                <span class="bg-gray-100 rounded-full px-2 py-0.5 inline-block"
-                  >Travel insurance</span
-                >
-              </div>
-              <div class="flex justify-between gap-xs">
-                <p class="bullet-2">
-                  Get Your Cheap Travel Insurance Online in Singapore
-                </p>
-                <img :src="ArrowRight" alt="icon" />
-              </div>
-            </div>
-          </div>
-          <div class="card-radius overflow-hidden bg-white shadow">
-            <div class="h-40 overflow-hidden">
-              <img
-                :src="ArticleThumbTwo"
-                alt="thumbnail"
-                class="w-full h-full object-cover"
-              />
-            </div>
-            <div class="padding-x padding-y gap-sm flex flex-col gap-sm">
-              <div>
-                <span class="bg-gray-100 rounded-full px-2 py-0.5 inline-block"
-                  >Travel insurance</span
-                >
-              </div>
-              <div class="flex justify-between gap-xs">
-                <p class="bullet-2">
-                  Single Trip vs Annual: Which Travel Insurance Should You Get?
-                </p>
-                <img :src="ArrowRight" alt="icon" />
-              </div>
-            </div>
-          </div>
-          <div class="card-radius overflow-hidden bg-white shadow">
-            <div class="h-40 overflow-hidden">
-              <img
-                :src="ArticleThumbThree"
-                alt="thumbnail"
-                class="w-full h-full object-cover"
-              />
-            </div>
-            <div class="padding-x padding-y gap-sm flex flex-col gap-sm">
-              <div>
-                <span class="bg-gray-100 rounded-full px-2 py-0.5 inline-block"
-                  >Travel insurance</span
-                >
-              </div>
-              <div class="flex justify-between gap-xs">
-                <p class="bullet-2">
-                  6 Best Senior Travel Insurance for Elderly in Singapore
-                </p>
-                <img :src="ArrowRight" alt="icon" />
-              </div>
-            </div>
-          </div>
+          <CardXL />
+          <CardXL />
+          <CardXL />
         </div>
-        <div
-          class="card-radius overflow-hidden flex flex-col lg:flex-row items-stretch bg-white gap-t shadow"
-        >
-          <div class="h-40 lg:h-full overflow-hidden basis-6/12">
-            <img
-              :src="ArticleThumbOne"
-              alt="thumbnail"
-              class="w-full h-full object-cover"
-            />
-          </div>
-          <div
-            class="padding-x padding-y gap-sm flex flex-col gap-sm basis-6/12"
-          >
-            <p class="subheading-2">Best Credit Cards of 2024</p>
-            <p class="body-2">
-              From huge sign-up bonuses to generous rewards, NerdWallet's best
-              credit cards of 2024 outshine the rest. Compare these deals to
-              find one that best fits your needs.
-            </p>
-            <div class="flex items-center gap-xs">
-              <p class="button-1 text-primary">Read More</p>
-              <img :src="ArrowRight" alt="icon" />
-            </div>
-          </div>
-        </div>
+        <CardXXL />
+
       </TheWrapper>
 
       <!-- About the author -->
