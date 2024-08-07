@@ -5,8 +5,8 @@
 </script>
 
 <template>
-  <header class="px-6 xl:px-10 py-5">
-    <div class="flex items-center justify-between">
+  <header class="py-5 bg-white">
+    <div class="flex items-center justify-between mx-auto max-w-screen-2xl px-6 xl:px-10">
       <img :src="MenuLine" alt="SingSaver" class="xl:hidden" />
       <div class="flex items-center gap-10">
         <img :src="SiteLogo" alt="SingSaver" />

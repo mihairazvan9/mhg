@@ -174,11 +174,18 @@
   }
 }
 
-
+body {
+  @apply bg-gray-100;
+}
+/* Rich text style */
 .rich-text p {
   @apply body-2;
 }
 
 .rich-text a {
   @apply text-primary underline;
+}
+
+.rich-text h3 {
+  @apply subheading-2;
 }

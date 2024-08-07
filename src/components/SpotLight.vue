@@ -46,6 +46,8 @@
         <img :src="IconSpotlight" alt="icon" />
         <span class="bullet-2 text-primary">Product Spotlight</span>
       </div>
+
+      
       <div class="padding-x padding-y bg-white">
         <div class="bg-white flex flex-col gap-sm">
           <div class="flex items-center gap-sm">

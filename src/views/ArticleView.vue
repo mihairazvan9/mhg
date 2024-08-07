@@ -23,7 +23,7 @@
 
 
   // remove next images when we have API
-  import CardBanner from "../assets/img/card-banner.png";
+  import CardBanner from "../assets/img/card-banner-CowjMhlR.png";
   import AuthorImg from "../assets/img/author.png";
   import ArticleThumbOne from "../assets/img/article-thumb-1.png";
   import ArticleThumbTwo from "../assets/img/article-thumb-2.png";
@@ -245,8 +245,8 @@
     </p>
   `
   const placeholder_piece_of_content = `
-    <h3 class="subheading-2">1. How credit cards work</h3>
-    <p class="body-2">
+    <h3>1. How credit cards work</h3>
+    <p>
       The idea behind credit cards is simple: When you use a credit card,
       you are borrowing money to pay for something. Later on, you must repay
       what your borrowed. If you take time to pay it back (rather than pay
@@ -259,7 +259,7 @@
 <template>
   <TheHeader />
 
-  <div class="px-6 xl:px-10 py-12 bg-gray-100 flex gap-md mx-auto max-w-screen-2xl">
+  <div class="mx-auto max-w-screen-2xl px-6 xl:px-10 py-12 bg-gray-100 flex gap-md">
     <div class="basis-full xl:basis-8/12">
       <!-- Breadcrumb -->
       <Breadcrumb :breadcrumb="placeholder_breadcrumb" />
