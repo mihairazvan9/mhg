@@ -24,7 +24,7 @@
   </section>
 
   <section v-else 
-           class="mt-8 pb-6 bg-white shadow rounded-2xl"
+           class="mt-8 pb-6 bg-white shadow card-radius"
   >
     <div class="padding-x padding-y-sm py-4">
       <h3 class="subheading-1">{{ props.title }}</h3>

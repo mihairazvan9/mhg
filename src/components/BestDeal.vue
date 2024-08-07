@@ -4,7 +4,7 @@
 
 <template>
   <div
-    class="bg-primary-light flex flex-col md:flex-row md:items-center gap-md rounded-2xl padding-x padding-y shadow margin-y"
+    class="bg-primary-light flex flex-col md:flex-row md:items-center gap-md card-radius padding-x padding-y shadow margin-y"
   >
     <div class="flex flex-col gap-xs">
       <h3 class="display-1">Find the right credit card for you.</h3>
