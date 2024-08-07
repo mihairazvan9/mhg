@@ -1,13 +1,28 @@
 <script setup>
+  import { ref, onMounted, onUnmounted } from "vue";
   import IconSpotlight from "../assets/img/icon-spotlight.svg";
   import CardLogo from "../assets/img/card-1.png";
   import ArrowRight from "../assets/img/arrow-right.svg";
 
+  const is_fixed = ref(false);
+
+  function handleScroll () {
+    is_fixed.value = window.scrollY > 110
+  }
+
+  onMounted(() => {
+    window.addEventListener('scroll', handleScroll)
+  })
+
+  onUnmounted(() => {
+    window.removeEventListener('scroll', handleScroll)
+  })
 </script>
 
 <template>
-  <div class="hidden xl:block basis-4/12">
-    <div class="card-radius overflow-hidden shadow">
+  <div class="hidden xl:block basis-4/12 relative z-0">
+    <div class="card-radius overflow-hidden shadow"
+         :class="{ 'fixed w-100 mr-6 xl:mr-10 top-6': is_fixed, 'relative': !is_fixed }">
       <div
         class="bg-primary-light padding-x-sm padding-y flex gap-sm items-center justify-center"
       >

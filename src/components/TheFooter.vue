@@ -7,7 +7,7 @@
 </script>
 
 <template>
-  <footer class="bg-primary-dark px-6 xl:px-10 py-12">
+  <footer class="bg-primary-dark px-6 xl:px-10 py-12 z-10 relative">
     <div class="flex flex-col xl:flex-row pb-6 border-b border-white/50">
       <div
         class="basis-3/12 mb-6 xl:mb-0 border-b xl:border-none border-white/50"
