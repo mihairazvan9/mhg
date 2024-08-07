@@ -36,7 +36,7 @@
       </div>
       <!-- pb-4 if active -->
       <div :class="['padding-x', {'pb-4': active_id === id }]">
-        <div :class="['transition-max-height overflow-hidden', {'active': active_id === id }]" 
+        <div :class="['transition-max-height overflow-hidden rich-text', {'active': active_id === id }]" 
               v-html="faq.answer">
         </div>
       </div>

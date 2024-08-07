@@ -178,3 +178,7 @@
 .rich-text p {
   @apply body-2;
 }
+
+.rich-text a {
+  @apply text-primary underline;
+}

@@ -15,7 +15,7 @@
 </script>
 
 <template>
-  <section class="gap-t">
+  <section class="gap-t" id="chips-wrapper">
     <h3 class="subheading-2">{{ props.title }}</h3>
     <div class="flex gap-xs gap-t-xs flex-wrap">
       <a v-for="card in chips"

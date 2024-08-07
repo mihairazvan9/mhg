@@ -17,6 +17,7 @@
   import ChipsCard from "@/components/ChipsCard.vue"
   import SpotLight from "@/components/SpotLight.vue"
   import Faqs from "@/components/Faqs.vue"
+  import TableOfContents from "@/components/TableOfContents.vue"
   import TheFooter from "@/components/TheFooter.vue"
 
 
@@ -206,12 +207,48 @@
       `
     }
   ]
+
+  const placeholder_contents = [
+    {
+      text: 'Identify which type of credit card you need',
+      link: '#'
+    },
+    {
+      text: 'Identify which type of credit card you need',
+      link: '#'
+    },
+    {
+      text: 'Identify which type of credit card you need',
+      link: '#'
+    },
+    {
+      text: 'Identify which type of credit card you need',
+      link: '#'
+    },
+    {
+      text: 'Identify which type of credit card you need',
+      link: '#'
+    },
+  ]
+
+
+  const placeholder_white_board = `
+    <p>
+      Many, or all, of the products featured on this page are from our
+      advertising partners who compensate us when you take certain actions
+      on our website or click to take an action on their website. However,
+      this does not influence our evaluations. Our opinions are our own.
+      Here is a list of
+      <a href="#">our partners</a> and
+      <a href="#">here's how we make money.</a>
+    </p>
+  `
 </script>
 
 <template>
   <TheHeader />
 
-  <div class="px-6 xl:px-10 py-12 bg-gray-100 flex gap-md">
+  <div class="px-6 xl:px-10 py-12 bg-gray-100 flex gap-md mx-auto max-w-screen-2xl">
     <div class="basis-full xl:basis-8/12">
       <!-- Breadcrumb -->
       <Breadcrumb :breadcrumb="placeholder_breadcrumb" />
@@ -219,39 +256,11 @@
       <!-- Page title -->
       <TheArticleHeader :header="placeholder_header" />
 
-      <TheWhiteBoard />
+      <TheWhiteBoard :content="placeholder_white_board" />
 
       <!-- Table of contents -->
       <TheWrapper title="Table of contents" simple>
-        <ul
-          class="padding-x-xs list-decimal marker:text-primary marker:font-semibold list-inside flex flex-col gap-t-xs gap-xs"
-        >
-          <li>
-            <a href="#" class="button-2 text-primary"
-              >Identify which type of credit card you need</a
-            >
-          </li>
-          <li>
-            <a href="#" class="button-2 text-primary"
-              >Identify which type of credit card you need</a
-            >
-          </li>
-          <li>
-            <a href="#" class="button-2 text-primary"
-              >Identify which type of credit card you need</a
-            >
-          </li>
-          <li>
-            <a href="#" class="button-2 text-primary"
-              >Identify which type of credit card you need</a
-            >
-          </li>
-          <li>
-            <a href="#" class="button-2 text-primary"
-              >Identify which type of credit card you need</a
-            >
-          </li>
-        </ul>
+        <TableOfContents :contents="placeholder_contents" />
       </TheWrapper>
   
       <!-- Beginner’s guide to credit cards -->

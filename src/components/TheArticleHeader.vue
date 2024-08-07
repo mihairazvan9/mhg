@@ -33,7 +33,7 @@
 
   <!-- Header image wrapper -->
   <div class="card-radius overflow-hidden">
-    <img :src="header.header_image" alt="credit card" class="w-full" />
+    <img id="article-header-image" :src="header.header_image" alt="credit card" class="w-full" />
   </div>
 </template>
 

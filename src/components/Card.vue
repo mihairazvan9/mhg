@@ -66,7 +66,6 @@
         <p class="bullet-2">
           {{ title }}
         </p>
-        
         <i v-html="icons.arrow_right"></i>
       </div>
     </div>
