@@ -6,17 +6,17 @@
 
   const is_fixed = ref(false);
 
-  function handleScroll () {
-    is_fixed.value = window.scrollY > 110
-  }
-
   onMounted(() => {
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handle_scroll)
   })
 
   onUnmounted(() => {
-    window.removeEventListener('scroll', handleScroll)
+    window.removeEventListener('scroll', handle_scroll)
   })
+
+  function handle_scroll () {
+    is_fixed.value = window.scrollY > 110
+  }
 </script>
 
 <template>

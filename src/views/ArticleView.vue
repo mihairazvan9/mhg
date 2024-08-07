@@ -16,6 +16,7 @@
   import Card from "@/components/Card.vue"
   import ChipsCard from "@/components/ChipsCard.vue"
   import SpotLight from "@/components/SpotLight.vue"
+  import Faqs from "@/components/Faqs.vue"
   import TheFooter from "@/components/TheFooter.vue"
 
 
@@ -183,6 +184,28 @@
       image: ArticleThumbThree
     },
   ]
+
+  const placeholder_faqs = [
+    {
+      question: `What's the best credit card?`,
+      answer: `<p class="body-2">
+        The idea behind credit cards is simple: When you use a credit card, you are borrowing money to pay for something. Later on, you must repay what your borrowed. If you take time to pay it back (rather than pay it in full when your credit card statement comes), you'll be charged interest. The whole credit cards industry rests on this basic premise.
+        </p>`,
+    },
+    {
+      question: `What's the easiest credit card to get?`,
+      answer: `<p class="body-2">
+            <a href="#" class="underline">Secured credit cards</a> require you to provide a cash security deposit to open an account. Because that deposit protects the card company from risk, secured cards are much easier to qualify for than other cards. You're not guaranteed approval for a secured card, but the bar is much lower than for regular cards. Store credit cards are also generally easier to qualify for than bank cards.
+          </p>`,
+    },
+    {
+      question: `What's the best credit card company?`,
+      answer: `
+        <p class="body-2">Just as there is no single best card for everyone, consumers have widely different opinions about the best (and worst) credit card issuers. One person could get the runaround from customer service rep and rate a bank zero stars as a result, while another has nothing but positive experiences and gives it five stars across the board. Still, some trends emerge in customer satisfaction surveys.</p>
+        <p class="body-2 mt-4">J.D. Power conducts an annual study of satisfaction among major national and regional credit card issuers. It regularly rates <a href="#" class="underline">Discover</a> and <a href="#" class="underline">American Express</a> at the top among mass-market issuers. In the most recent study, USAA and Navy Federal Credit Union had the highest ratings of all, but keep in mind that only people affiliated with the military are eligible for USAA or Navy Federal products.</p>
+      `
+    }
+  ]
 </script>
 
 <template>
@@ -307,6 +330,11 @@
         </div>
         <Card :card="placeholder_cards[0]" large />
 
+      </TheWrapper>
+
+      <!-- Faq -->
+      <TheWrapper title="Frequently asked questions">
+        <Faqs :faqs="placeholder_faqs" />
       </TheWrapper>
 
       <!-- About the author -->
