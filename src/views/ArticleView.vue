@@ -278,7 +278,9 @@
       <TheWrapper title="Beginner’s guide to credit cards" simple>
         <PieceOfContent :content="placeholder_piece_of_content" />
         <CTA :cta="placeholder_cta">
-        <!-- All property for TheButton:
+        
+        <!-- 
+            All property for TheButton:
             -text (default - 'Get started')
             -link
             -color (tailwind classes, default - 'text-white')
@@ -328,11 +330,9 @@
       <ChipsCard title="More like this"
                  :chips="placeholder_chips"
       />
-          
     </div>
     
     <!-- Product Spotlight -->
-    <!-- TODO -->
     <SpotLight />
   </div>
 
