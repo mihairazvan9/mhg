@@ -287,11 +287,11 @@
             -icon_left (left icon)
         -->
           <TheButton />
-          <PieceOfContent :content="placeholder_piece_of_content" />
-          <PieceOfContent :content="placeholder_piece_of_content" />
-          <PieceOfContent :content="placeholder_piece_of_content" />
         </CTA>
         
+        <PieceOfContent :content="placeholder_piece_of_content" />
+        <PieceOfContent :content="placeholder_piece_of_content" />
+        <PieceOfContent :content="placeholder_piece_of_content" />
       </TheWrapper>
 
       
