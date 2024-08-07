@@ -11,7 +11,7 @@
 </script>
 
 <template>
-  <div class="flex flex-col gap-sm padding-x padding-y">
+  <div class="flex flex-col gap-sm padding-x padding-y border-t border-gray-300">
     <div class="flex items-center gap-3">
 
       <div class="w-12 h-12 rounded-full overflow-hidden">

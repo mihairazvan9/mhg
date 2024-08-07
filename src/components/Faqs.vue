@@ -24,7 +24,7 @@
   <ul class="">
     <li v-for="(faq, id) in props.faqs">
       
-      <div class="flex items-center justify-between padding-x py-4 cursor-pointer  border-t border-gray-300" 
+      <div class="flex items-center justify-between padding-x py-4 cursor-pointer border-t border-gray-300" 
            @click="handle_toggle_details(id)"
       >
         <h4 class="subheading-2">

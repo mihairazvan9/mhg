@@ -281,14 +281,14 @@
         <!-- All property for TheButton:
             -text (default - 'Get started')
             -link
-            -color (tailwind class, default - 'text-white')
-            -background (tailwind class, default - 'bg-primary')
+            -color (tailwind classes, default - 'text-white')
+            -background (tailwind classes, default - 'bg-primary')
             -icon (right icon)
             -icon_left (left icon)
         -->
           <TheButton />
         </CTA>
-        
+
         <PieceOfContent :content="placeholder_piece_of_content" />
         <PieceOfContent :content="placeholder_piece_of_content" />
         <PieceOfContent :content="placeholder_piece_of_content" />
@@ -320,6 +320,7 @@
 
       <!-- About the author -->
       <TheWrapper title="About the author">
+        <Author :author="placeholder_author" />
         <Author :author="placeholder_author" />
       </TheWrapper>
 
