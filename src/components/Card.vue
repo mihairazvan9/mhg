@@ -22,7 +22,7 @@
   <div v-if="large" 
        class="card-radius overflow-hidden flex flex-col lg:flex-row items-stretch bg-white gap-t shadow"
   >
-    <div class="h-40 lg:h-full overflow-hidden basis-6/12">
+    <div class="h-full lg:h-full overflow-hidden basis-6/12">
       <img
         :src="image"
         alt="thumbnail"

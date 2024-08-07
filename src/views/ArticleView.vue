@@ -303,8 +303,7 @@
 
       <!-- Other articles -->
       <TheWrapper title="Other articles" simple>
-        <div class="flex flex-col md:flex-row gap-md gap-t">
-
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-md gap-t">
           <Card v-for="card in placeholder_cards"
                   :card
           />
