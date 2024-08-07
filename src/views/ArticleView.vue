@@ -18,6 +18,7 @@
   import SpotLight from "@/components/SpotLight.vue"
   import Faqs from "@/components/Faqs.vue"
   import TableOfContents from "@/components/TableOfContents.vue"
+  import PieceOfContent from "@/components/PieceOfContent.vue"
   import TheFooter from "@/components/TheFooter.vue"
 
 
@@ -243,6 +244,16 @@
       <a href="#">here's how we make money.</a>
     </p>
   `
+  const placeholder_piece_of_content = `
+    <h3 class="subheading-2">1. How credit cards work</h3>
+    <p class="body-2">
+      The idea behind credit cards is simple: When you use a credit card,
+      you are borrowing money to pay for something. Later on, you must repay
+      what your borrowed. If you take time to pay it back (rather than pay
+      it in full when your credit card statement comes), you'll be charged
+      interest. The whole credit cards industry rests on this basic premise.
+    </p>
+  `
 </script>
 
 <template>
@@ -265,30 +276,7 @@
   
       <!-- Beginner’s guide to credit cards -->
       <TheWrapper title="Beginner’s guide to credit cards" simple>
-        <div class="flex flex-col gap-xs gap-t">
-          <h3 class="subheading-2">1. How credit cards work</h3>
-          <p class="body-2">
-            The idea behind credit cards is simple: When you use a credit card,
-            you are borrowing money to pay for something. Later on, you must
-            repay what your borrowed. If you take time to pay it back (rather
-            than pay it in full when your credit card statement comes), you'll
-            be charged interest. The whole credit cards industry rests on this
-            basic premise.
-          </p>
-        </div>
-        <div class="flex flex-col gap-xs gap-t">
-          <h3 class="subheading-2">1. How credit cards work</h3>
-          <p class="body-2">
-            The idea behind credit cards is simple: When you use a credit card,
-            you are borrowing money to pay for something. Later on, you must
-            repay what your borrowed. If you take time to pay it back (rather
-            than pay it in full when your credit card statement comes), you'll
-            be charged interest. The whole credit cards industry rests on this
-            basic premise.
-          </p>
-        </div>
-
-
+        <PieceOfContent :content="placeholder_piece_of_content" />
         <CTA :cta="placeholder_cta">
         <!-- All property for TheButton:
             -text (default - 'Get started')
@@ -299,27 +287,11 @@
             -icon_left (left icon)
         -->
           <TheButton />
+          <PieceOfContent :content="placeholder_piece_of_content" />
+          <PieceOfContent :content="placeholder_piece_of_content" />
+          <PieceOfContent :content="placeholder_piece_of_content" />
         </CTA>
-        <div class="flex flex-col gap-xs gap-t">
-          <h3 class="subheading-2">1. How credit cards work</h3>
-          <p class="body-2">
-            The idea behind credit cards is simple: When you use a credit card,
-            you are borrowing money to pay for something. Later on, you must repay
-            what your borrowed. If you take time to pay it back (rather than pay
-            it in full when your credit card statement comes), you'll be charged
-            interest. The whole credit cards industry rests on this basic premise.
-          </p>
-        </div>
-        <div class="flex flex-col gap-xs gap-t">
-          <h3 class="subheading-2">1. How credit cards work</h3>
-          <p class="body-2">
-            The idea behind credit cards is simple: When you use a credit card,
-            you are borrowing money to pay for something. Later on, you must repay
-            what your borrowed. If you take time to pay it back (rather than pay
-            it in full when your credit card statement comes), you'll be charged
-            interest. The whole credit cards industry rests on this basic premise.
-          </p>
-        </div>
+        
       </TheWrapper>
 
       
