@@ -13,8 +13,7 @@
   import CTA from "@/components/CTA.vue"
   import BestDeal from "@/components/BestDeal.vue"
   import Author from "@/components/Author.vue"
-  import CardXL from "@/components/CardXL.vue"
-  import CardXXL from "@/components/CardXXL.vue"
+  import Card from "@/components/Card.vue"
   import ChipsCard from "@/components/ChipsCard.vue"
   import SpotLight from "@/components/SpotLight.vue"
   import TheFooter from "@/components/TheFooter.vue"
@@ -23,7 +22,10 @@
   // remove next images when we have API
   import CardBanner from "../assets/img/card-banner.png";
   import AuthorImg from "../assets/img/author.png";
-
+  import ArticleThumbOne from "../assets/img/article-thumb-1.png";
+  import ArticleThumbTwo from "../assets/img/article-thumb-2.png";
+  import ArticleThumbThree from "../assets/img/article-thumb-3.png";
+  
   const placeholder_breadcrumb = [
     {
       title: 'Start',
@@ -154,6 +156,33 @@
       link: '#'
     },
   ]
+
+  const placeholder_cards = [
+    {
+      tags: 'Travel insurance',
+      title: 'Get Your Cheap Travel Insurance Online in Singapore',
+      subtitle: `From huge sign-up bonuses to generous rewards, NerdWallet's best
+        credit cards of 2024 outshine the rest. Compare these deals to
+        find one that best fits your needs.`,
+      image: ArticleThumbOne
+    },
+    {
+      tags: 'Travel insurance',
+      title: 'Get Your Cheap Travel Insurance Online in Singapore',
+      subtitle: `From huge sign-up bonuses to generous rewards, NerdWallet's best
+        credit cards of 2024 outshine the rest. Compare these deals to
+        find one that best fits your needs.`,
+      image: ArticleThumbTwo
+    },
+    {
+      tags: 'Travel insurance',
+      title: 'Get Your Cheap Travel Insurance Online in Singapore',
+      subtitle: `From huge sign-up bonuses to generous rewards, NerdWallet's best
+        credit cards of 2024 outshine the rest. Compare these deals to
+        find one that best fits your needs.`,
+      image: ArticleThumbThree
+    },
+  ]
 </script>
 
 <template>
@@ -271,11 +300,12 @@
       <!-- Other articles -->
       <TheWrapper title="Other articles" simple>
         <div class="flex flex-col md:flex-row gap-md gap-t">
-          <CardXL />
-          <CardXL />
-          <CardXL />
+
+          <Card v-for="card in placeholder_cards"
+                  :card
+          />
         </div>
-        <CardXXL />
+        <Card :card="placeholder_cards[0]" large />
 
       </TheWrapper>
 
