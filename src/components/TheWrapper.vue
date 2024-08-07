@@ -26,7 +26,7 @@
   <section v-else 
            class="mt-8 pb-6 bg-white shadow rounded-2xl"
   >
-    <div class="padding-x padding-y-sm py-4 border-b border-gray-300">
+    <div class="padding-x padding-y-sm py-4">
       <h3 class="subheading-1">{{ props.title }}</h3>
     </div>
     <slot></slot>

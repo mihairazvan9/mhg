@@ -30,7 +30,7 @@
       </a>
     </p>
 
-    <div class="flex items-center gap-4 mt-4">
+    <div class="flex flex-wrap items-center gap-4 mt-4">
       <SociaMedia v-for="media in props.author.media" 
                   :media
       />

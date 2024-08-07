@@ -8,7 +8,7 @@
 </script>
 
 <template>
-  <div class="flex items-center gap-2 truncate">
+  <div class="flex flex-wrap items-center gap-2 truncate">
     <div v-for="(object, index) in breadcrumb" :key="index">
       <a :href="object.link"
          class="body-2"

@@ -24,7 +24,7 @@
   <ul class="">
     <li v-for="(faq, id) in props.faqs">
       
-      <div class="flex items-center justify-between padding-x py-4 cursor-pointer" 
+      <div class="flex items-center justify-between padding-x py-4 cursor-pointer  border-t border-gray-300" 
            @click="handle_toggle_details(id)"
       >
         <h4 class="subheading-2">
@@ -35,7 +35,7 @@
         </button>
       </div>
       <!-- pb-4 if active -->
-      <div class="padding-x">
+      <div :class="['padding-x', {'pb-4': active_id === id }]">
         <div :class="['transition-max-height overflow-hidden', {'active': active_id === id }]" 
               v-html="faq.answer">
         </div>
