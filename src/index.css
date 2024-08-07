@@ -1,0 +1,180 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body,
+  .font-albert {
+    font-family: "Albert Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+  }
+  .material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 200, "GRAD" 0, "opsz" 48;
+  }
+}
+@layer components{
+  .icon-xs{
+    width: 18px;
+  }
+  .icon-sm{
+    width: 22px;
+  }
+  .icon-md{
+    width: 24px;
+  }
+  .icon-lg{
+    width: 28px;
+  }
+  .radio-sm{
+    width: 18px;
+  }
+  .radio-md{
+    width: 20px;
+  }
+  .radio-lg{
+    width: 24px;
+  }
+  .pictogram-1{
+    width: 32px;
+  }
+  .pictogram-2{
+    width: 48px;
+  }
+  .pictogram-3{
+    width: 64px;
+  }
+  .pictogram-4{
+    width: 80px;
+  }
+  .pictogram-5{
+    width: 96px;
+  }
+}
+@layer utilities {
+  .display-1 {
+    @apply text-xl md:text-2xl xl:text-3xl font-bold leading-xl md:leading-2xl xl:leading-3xl;
+  }
+  .display-2 {
+    @apply text-2xl md:text-3xl xl:text-4xl font-bold leading-2xl md:leading-3xl xl:leading-4xl;
+  }
+  .display-3 {
+    @apply text-3xl md:text-4xl xl:text-5xl font-extrabold leading-3xl md:leading-4xl xl:leading-5xl;
+  }
+  .display-4 {
+    @apply text-4xl xl:text-6xl font-extrabold leading-4xl xl:leading-6xl;
+  }
+  .display-5 {
+    @apply text-5xl xl:text-6xl font-extrabold leading-5xl xl:leading-6xl;
+  }
+  .title-1 {
+    @apply text-lg md:text-xl xl:text-2xl font-bold leading-lg md:leading-xl xl:leading-2xl;
+  }
+  .title-2 {
+    @apply text-base md:text-lg xl:text-xl font-bold leading-base md:leading-lg xl:leading-xl;
+  }
+  .subheading-1 {
+    @apply text-lg md:text-xl xl:text-3xl font-semibold leading-lg md:leading-xl xl:leading-3xl;
+  }
+  .subheading-2 {
+    @apply text-base md:text-lg xl:text-xl font-semibold leading-base md:leading-lg xl:leading-xl;
+  }
+  .body-1 {
+    @apply text-base md:text-lg xl:text-xl font-medium leading-base md:leading-lg xl:leading-xl;
+  }
+  .body-2 {
+    @apply text-sm md:text-base xl:text-lg font-medium leading-sm md:leading-base xl:leading-lg text-gray-700;
+  }
+  .bullet-1 {
+    @apply text-base md:text-lg xl:text-xl font-semibold leading-base md:leading-lg xl:leading-xl;
+  }
+  .bullet-2 {
+    @apply text-sm md:text-base xl:text-xl font-semibold leading-sm md:leading-base xl:leading-xl;
+  }
+  .button-1 {
+    @apply text-base md:text-lg xl:text-xl font-semibold leading-base md:leading-lg xl:leading-xl;
+  }
+  .button-2 {
+    @apply text-sm md:text-base xl:text-lg font-semibold leading-sm md:leading-base xl:leading-lg;
+  }
+  .caption-text {
+    @apply text-xs md:text-sm xl:text-base font-medium leading-xs md:leading-sm xl:leading-base;
+  }
+  .overline-text {
+    @apply text-sm md:text-base xl:text-xl font-semibold leading-sm md:leading-base xl:leading-xl;
+  }
+  .tag-text {
+    @apply text-sm md:text-sm xl:text-base font-medium leading-sm md:leading-sm xl:leading-base;
+  }
+  .button-radius{
+    @apply rounded-lg md:rounded-xl;
+  }
+  .button-gap{
+    @apply gap-1 xl:gap-2;
+  }
+  .button-padding-x{
+    @apply px-3 md:px-4 xl:px-6;
+  }
+  .button-padding-x-xs{
+    @apply px-2 md:px-3 xl:px-4;
+  }
+  .margin-x{
+    @apply mx-4 xl:mx-6;
+  }
+  .margin-y{
+    @apply my-4 xl:my-6;
+  }
+  .padding-x{
+    @apply px-4 xl:px-6;
+  }
+  .padding-y{
+    @apply py-4 xl:py-6;
+  }
+  .padding-t{
+    @apply pt-4 xl:pt-6;
+  }
+  .padding-x-sm{
+    @apply px-3 xl:px-4;
+  }
+  .padding-y-sm{
+    @apply py-3 xl:py-4;
+  }
+  .padding-x-xs{
+    @apply px-1 md:px-2 xl:px-3;
+  }
+  .padding-y-xs{
+    @apply py-1 md:py-2 xl:py-3;
+  }
+  .padding-section-x{
+    @apply px-4 md:px-6 xl:px-8 2xl:px-10;
+  }
+  .padding-section-y{
+    @apply px-4 md:px-6 xl:px-8 2xl:px-10;
+  }
+  .gap-md{
+    @apply gap-4 xl:gap-6;
+  }
+  .gap-sm{
+    @apply gap-2 xl:gap-4;
+  }
+  .gap-xs{
+    @apply gap-1 xl:gap-2;
+  }
+  .gap-t{
+    @apply mt-4 xl:mt-6;
+  }
+  .gap-t-sm{
+    @apply mt-2 xl:mt-4;
+  }
+  .gap-t-xs{
+    @apply mt-1 xl:mt-2;
+  }
+  .card-radius{
+    @apply rounded-2xl xl:rounded-3xl;
+  }
+}
+
+
+.rich-text p {
+  @apply body-2;
+}
