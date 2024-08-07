@@ -16,6 +16,7 @@
   import Card from "@/components/Card.vue"
   import ChipsCard from "@/components/ChipsCard.vue"
   import SpotLight from "@/components/SpotLight.vue"
+  import SpotLightProduct from "@/components/SpotLightProduct.vue"
   import Faqs from "@/components/Faqs.vue"
   import TableOfContents from "@/components/TableOfContents.vue"
   import PieceOfContent from "@/components/PieceOfContent.vue"
@@ -28,6 +29,7 @@
   import ArticleThumbOne from "../assets/img/article-thumb-1.png";
   import ArticleThumbTwo from "../assets/img/article-thumb-2.png";
   import ArticleThumbThree from "../assets/img/article-thumb-3.png";
+  import CardLogo from "../assets/img/card-1.png";
   
   const placeholder_breadcrumb = [
     {
@@ -232,7 +234,6 @@
     },
   ]
 
-
   const placeholder_white_board = `
     <p>
       Many, or all, of the products featured on this page are from our
@@ -254,6 +255,25 @@
       interest. The whole credit cards industry rests on this basic premise.
     </p>
   `
+
+  const placeholder_spotlight = [
+    {
+      image: CardLogo,
+      title: 'Wells Fargo Autograph Journey Card',
+      subtitle: `Earn 60,000 bonus points when you spend $4,000 in purchases in the
+            first 3 months – that’s $600 toward your next trip.
+      `,
+      link: '#'
+    },
+    {
+      image: CardLogo,
+      title: 'Wells Fargo Autograph Journey Card',
+      subtitle: `Earn 60,000 bonus points when you spend $4,000 in purchases in the
+            first 3 months – that’s $600 toward your next trip.
+      `,
+      link: '#'
+    },
+  ]
 </script>
 
 <template>
@@ -281,10 +301,12 @@
         
         <!-- 
             All property for TheButton:
-            -text (default - 'Get started')
+            -title (default - 'Get started')
             -link
+            -width (tailwind classes, default - 'w-max' (fit to content))
             -color (tailwind classes, default - 'text-white')
             -background (tailwind classes, default - 'bg-primary')
+            -outline (tailwind classes, eg. - 'border-primary', default - null)
             -icon (right icon)
             -icon_left (left icon)
         -->
@@ -333,7 +355,27 @@
     </div>
     
     <!-- Product Spotlight -->
-    <SpotLight />
+    <SpotLight>
+      <SpotLightProduct :product="placeholder_spotlight[0]">
+        <TheButton title="Apply Now"
+                   :link="placeholder_spotlight[0].link"
+                   width="w-full"
+                   background="bg-cta"
+                   :icon="icons.arrow_right"
+        />
+      </SpotLightProduct>
+
+      <SpotLightProduct :product="placeholder_spotlight[1]">
+        <TheButton title="Find More"
+                   :link="placeholder_spotlight[1].link"
+                   width="w-full"
+                   background="bg-white"
+                   outline="border-secondary-dark"
+                   color="text-secondary-dark"
+                   :icon="icons.arrow_right"
+        />
+      </SpotLightProduct>
+    </SpotLight>
   </div>
 
   <TheFooter />

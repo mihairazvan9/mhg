@@ -1,6 +1,6 @@
 <script setup>
   const props = defineProps({
-    text: {
+    title: {
       type: String,
       default: 'Get started',
     },
@@ -20,12 +20,22 @@
       default: 'bg-primary',
     },
 
+    width: {
+      type: String,
+      default: 'w-max',
+    },
+
     icon: {
       type: String,
       default: null
     },
 
     icon_left: {
+      type: String,
+      default: null
+    },
+
+    outline: {
       type: String,
       default: null
     }
@@ -35,7 +45,13 @@
 <template>
   <a class="the-button" 
      :href="props.link"
-     :class="`${props.background} ${props.color} flex flex-shrink-0 items-center gap-x-2 button-padding-x py-2.5 button-1 w-max button-radius`"
+     :class="[
+        props.background,
+        props.color,
+        props.width,
+        props.outline ? `${props.outline} border-solid border-2` : '',
+        'flex flex-shrink-0 items-center justify-center gap-x-2 button-padding-x py-2.5 button-1 button-radius'
+     ]"
   >
     <!-- Left icon -->
     <i v-if="props.icon_left" 
@@ -44,7 +60,7 @@
     ></i>
 
     <!-- Text -->
-    {{ props.text }}
+    {{ props.title }}
 
     <!-- Right icon -->
     <i v-if="props.icon" 

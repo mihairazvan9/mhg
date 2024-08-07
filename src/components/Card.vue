@@ -29,9 +29,7 @@
         class="w-full h-full object-cover"
       />
     </div>
-    <div
-      class="padding-x padding-y gap-sm flex flex-col gap-sm basis-6/12"
-    >
+    <div class="padding-x padding-y gap-sm flex flex-col gap-sm basis-6/12">
       <p class="subheading-2">
         {{ title }}
       </p>
