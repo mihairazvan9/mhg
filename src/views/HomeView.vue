@@ -17,9 +17,9 @@ import RewardThumb from "../assets/img/reward-thumb.png";
 import RewardThumb2 from "../assets/img/reward-thumb-1.png";
 import TheWrapper from "../components/TheWrapper.vue"
 import OfferCard from "../components/OfferCard.vue";
-import TheHeader from "@/components/TheHeader.vue"
-import TheFooter from "@/components/TheFooter.vue"
-import Breadcrumb from "@/components/Breadcrumb.vue"
+import TheFooter from "../components/TheFooter.vue";
+import TheHeader from "../components/TheHeader.vue";
+import Breadcrumb from "../components/Breadcrumb.vue";
 
 const bestOffers = [
   {
@@ -71,15 +71,15 @@ const placeholder_breadcrumb = [
   {
     title: 'Best Credit Card Bonuses for New Cardholders of August 2024',
     link: '/'
-  }
-]
+  },
+];
 </script>
 
 <template>
   <TheHeader/>
 
-  <div class="mx-auto max-w-screen-2xl px-6 xl:px-10 py-12 bg-gray-100 flex gap-md">
-    <div class="basis-full xl:basis-8/12">
+  <div class="py-12 bg-gray-100">
+    <div class="mx-auto max-w-screen-2xl px-6 xl:px-10">
       <!-- Breadcrumb -->
       <Breadcrumb :breadcrumb="placeholder_breadcrumb" />
 
@@ -113,6 +113,7 @@ const placeholder_breadcrumb = [
               Get started</a
             >
           </div>
+
           <div class="bg-white rounded-xl shadow-sm">
             <div class="p-6 flex items-center justify-between">
               <div class="flex items-center gap-5 justify-between">
@@ -150,7 +151,10 @@ const placeholder_breadcrumb = [
           </div>
         </div>
       </div>
-      <div class="bg-primary-light padding-section-x py-12">
+    </div>
+
+    <div class="bg-primary-light padding-section-x py-12 mt-6">
+      <div class="mx-auto max-w-screen-2xl px-6 xl:px-10">
         <h3 class="display-1">Best Travel Cards of August 2024</h3>
         <div class="overflow-x-scroll">
           <div class="w-[800px] lg:w-full">
@@ -180,8 +184,8 @@ const placeholder_breadcrumb = [
                     <div class="flex items-center gap-2">
                       <span class="body-1">2x-5x</span>
                       <span class="material-symbols-outlined">
-                      info
-                    </span>
+                    info
+                  </span>
                     </div>
                     <p class="body-2">Miles</p>
                   </div>
@@ -191,8 +195,8 @@ const placeholder_breadcrumb = [
                     <div class="flex items-center gap-2">
                       <span class="body-1">75,000</span>
                       <span class="material-symbols-outlined">
-                      info
-                    </span>
+                    info
+                  </span>
                     </div>
                     <p class="body-2">Miles</p>
                   </div>
@@ -221,8 +225,8 @@ const placeholder_breadcrumb = [
                     <div class="flex items-center gap-2">
                       <span class="body-1">2x-5x</span>
                       <span class="material-symbols-outlined">
-                      info
-                    </span>
+                    info
+                  </span>
                     </div>
                     <p class="body-2">Miles</p>
                   </div>
@@ -232,8 +236,8 @@ const placeholder_breadcrumb = [
                     <div class="flex items-center gap-2">
                       <span class="body-1">75,000</span>
                       <span class="material-symbols-outlined">
-                      info
-                    </span>
+                    info
+                  </span>
                     </div>
                     <p class="body-2">Miles</p>
                   </div>
@@ -262,8 +266,8 @@ const placeholder_breadcrumb = [
                     <div class="flex items-center gap-2">
                       <span class="body-1">2x-5x</span>
                       <span class="material-symbols-outlined">
-                      info
-                    </span>
+                    info
+                  </span>
                     </div>
                     <p class="body-2">Miles</p>
                   </div>
@@ -273,8 +277,8 @@ const placeholder_breadcrumb = [
                     <div class="flex items-center gap-2">
                       <span class="body-1">75,000</span>
                       <span class="material-symbols-outlined">
-                      info
-                    </span>
+                    info
+                  </span>
                     </div>
                     <p class="body-2">Miles</p>
                   </div>
@@ -291,12 +295,14 @@ const placeholder_breadcrumb = [
           </div>
         </div>
       </div>
+    </div>
 
-      <TheWrapper simple title="Best Offers of 2024" class="padding-section-x section-y-lg">
+    <div class="mx-auto max-w-screen-2xl px-6 xl:px-10">
+      <TheWrapper simple title="Best Offers of 2024" class="section-y-lg">
         <OfferCard v-for="offer in bestOffers" :key="offer.id" :value="offer" class="pt-4"/>
       </TheWrapper>
 
-      <div class="bg-gray-100 padding-section-x py-12 pt-2">
+      <div class="bg-gray-100 py-12 pt-2">
         <div>
           <h3 class="display-1 mb-6">Beginner’s guide to credit cards</h3>
           <div class="mb-6">
@@ -312,6 +318,7 @@ const placeholder_breadcrumb = [
             <p class="body-2">The idea behind credit cards is simple: When you use a credit card, you are borrowing money to pay for something. Later on, you must repay what your borrowed. If you take time to pay it back (rather than pay it in full when your credit card statement comes), you'll be charged interest. The whole credit cards industry rests on this basic premise.</p>
           </div>
         </div>
+
         <div class="mt-8 pb-6 bg-white shadow rounded-2xl">
           <div class="padding-x py-4 border-b border-gray-300">
             <h3 class="subheading-1">Frequently asked questions</h3>
@@ -360,6 +367,7 @@ const placeholder_breadcrumb = [
             </div>
           </div>
         </div>
+
         <div class="mt-8 pb-6 bg-white shadow rounded-2xl">
           <div class="padding-section-x py-4 border-b border-gray-300">
             <h3 class="subheading-1">About the author</h3>
