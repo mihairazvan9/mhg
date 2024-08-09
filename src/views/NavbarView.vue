@@ -40,7 +40,7 @@
   </nav>
 
   <h1 class="text-3xl font-bold underline text-center py-20">
-    Sanwal Sulehri Workspace
+    <!-- Sanwal Sulehri Workspace -->
   </h1>
 </template>
 

@@ -115,41 +115,7 @@ const placeholder_breadcrumb = [
             >
           </div>
 
-          <div class="bg-white rounded-xl shadow-sm">
-            <div class="p-6 flex items-center justify-between">
-              <div class="flex items-center gap-5 justify-between">
-                <img :src="SiteLogo" alt="SingSaver" class="w-32">
-                <p class="text-xl font-semibold">Why trust SingSaver</p>
-              </div>
-              <button>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M7.40002 15.0357L6.34619 13.982L12 8.32812L17.6538 13.982L16.6 15.0357L12 10.4357L7.40002 15.0357Z" fill="#212121"/>
-                </svg>
 
-              </button>
-            </div>
-            <div class="p-6">
-              <ul class="mb-6">
-                <li class="flex items-center mb-3 gap-2">
-                  <img :src="IconTick" alt="icon">
-                  <p class="text-lg font-medium text-gray-800">250+ credit cards reviewed and rated by our team of experts</p>
-                </li>
-                <li class="flex items-center mb-3 gap-2">
-                  <img :src="IconTick" alt="icon">
-                  <p class="text-lg font-medium text-gray-800">80+ years of combined experience covering credit cards and personal finance</p>
-                </li>
-                <li class="flex items-center mb-3 gap-2">
-                  <img :src="IconTick" alt="icon">
-                  <p class="text-lg font-medium text-gray-800">100+ categories of best credit card selections (<a href="" class="underline">See our top picks</a>)</p>
-                </li>
-                <li class="flex items-center mb-3 gap-2">
-                  <img :src="IconTick" alt="icon">
-                  <p class="text-lg font-medium text-gray-800">Objective comprehensive ratings rubrics (<a href="" class="underline">Methodology</a>)</p>
-                </li>
-              </ul>
-              <p class="text-lg text-gray-800 font-medium">NerdWallet's credit cards content, including ratings and recommendations, is overseen by a team of writers and editors who specialize in credit cards. Their work has appeared in The Associated Press, USA Today, The New York Times, MarketWatch, MSN, NBC's "Today," ABC's "Good Morning America" and many other national, regional and local media outlets. Each writer and editor follows NerdWallet's strict guidelines for editorial integrity.</p>
-            </div>
-          </div>
         </div>
       </div>
     </div>

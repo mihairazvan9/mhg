@@ -31,7 +31,7 @@ const props = defineProps({
 });
 
 const sectionVisible = ref({
-  rewards: false,
+  rewards: true,
   cardDetails: false,
   expertAdvice: false,
 });
