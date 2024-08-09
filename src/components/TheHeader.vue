@@ -12,13 +12,26 @@
         <img :src="SiteLogo" alt="SingSaver" />
         <ul class="hidden xl:flex items-center gap-9">
           <li>
+            <RouterLink to="/" class="text-lg font-bold leading-normal">
+              Home
+            </RouterLink>
+          </li>
+          <li>
+            <RouterLink to="/article-page" class="text-lg font-bold leading-normal">
+              Article Page
+            </RouterLink>
+            <RouterLink to="/navbar-page" class="text-lg font-bold leading-normal ml-6">
+              Try Navbar
+            </RouterLink>
+          </li>
+          <!-- <li>
             <a href="#" class="text-lg font-bold leading-normal"
               >All products</a
             >
           </li>
           <li>
             <a href="#" class="text-lg font-bold leading-normal">Guides</a>
-          </li>
+          </li> -->
           <li>
             <a href="#" class="text-lg font-bold leading-normal">Rewards</a>
           </li>
