@@ -1,5 +1,5 @@
 <script setup>
-  import { ref, markRaw } from 'vue'
+  import { ref, markRaw, onMounted } from 'vue'
 
   import TextImage from "@/components/Table/TextImage.vue"
   import Text from "@/components/Table/Text.vue"
@@ -216,6 +216,7 @@
       last_tr.style.borderBottom = 'unset'
       last_tr = null
     }
+
     const table = event.currentTarget.closest('.table-wrapper')
     const tr = event.currentTarget.closest('tr')
     const rewards = document.getElementById('table-rewards')
@@ -234,6 +235,23 @@
   function get_last_two_cells (row) {
     return row.slice(-2);
   }
+
+  onMounted(() => {
+
+    const table = [...document.getElementsByClassName('table-container')]
+    const tr = [...document.getElementsByTagName('tr')]
+
+
+    setTimeout(() =>{
+      console.log(window.innerWidth)
+      if (window.innerWidth > 768) {
+        handle_open_reward({event: {currentTarget: tr[0]}, id: 0})
+      } else {
+        handle_open_reward({event: {currentTarget: tr[1]}, id: 0})
+      }
+
+    },100)
+  })
 
 </script>
 
