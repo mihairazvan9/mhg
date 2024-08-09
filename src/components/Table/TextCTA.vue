@@ -3,7 +3,8 @@
     data: {
       type: Object,
       required: true
-    }
+    },
+    
   })
 
   const emits = defineEmits([
@@ -26,7 +27,7 @@
     </p>
 
     <p @click="handle_open_reward($event, props.data.cta.id)"
-       class="body-2 !text-primary !font-semibold underline text-nowrap">
+       class="body-2 !text-primary !font-semibold underline text-nowrap cursor-pointer">
       {{ props.data.cta.text }}
     </p>
   </div>

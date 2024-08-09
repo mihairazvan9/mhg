@@ -125,7 +125,7 @@ const placeholder_breadcrumb = [
     </TheWrapper>
 
     <div class="mx-auto max-w-screen-2xl px-6 xl:px-10">
-      <TheWrapper simple title="Best Offers of 2024" class="section-y-lg">
+      <TheWrapper simple title="Best Offers of 2024">
         <OfferCard v-for="offer in bestOffers" :key="offer.id" :value="offer" class="pt-4"/>
       </TheWrapper>
 
