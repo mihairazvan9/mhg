@@ -31,7 +31,7 @@ const props = defineProps({
 });
 
 const sectionVisible = ref({
-  gifts: false,
+  rewards: false,
   cardDetails: false,
   expertAdvice: false,
 });
@@ -129,27 +129,29 @@ const sectionVisible = ref({
     <ul class="bg-white rounded-b-2xl xl:rounded-b-3xl">
       <li>
         <div class="padding-x padding-y-sm flex flex-col gap-md bg-primary-light">
-          <div class="flex items-center justify-between gap-md">
+          <div
+              class="flex items-center justify-between gap-md cursor-pointer"
+              @click.prevent="sectionVisible.rewards = !sectionVisible.rewards"
+          >
             <div class="flex items-center">
               <h4 class="subheading-2 text-primary">Gifts & rewards</h4>
             </div>
 
             <div class="flex items-center gap-md">
               <div class="flex items-center subheading-2 text-primary">
-                <span>3 rewards</span>
+                <span>{{ value.rewards.length }} rewards</span>
                 <img :src="IconDiamond" alt="reward" class="icon-xs ml-1"/>
               </div>
 
               <button
-                  :class="['transition-rotate overflow-hidden', {'active': sectionVisible.gifts }]"
-                  @click.prevent="sectionVisible.gifts = !sectionVisible.gifts"
+                  :class="['transition-rotate overflow-hidden', {'active': sectionVisible.rewards }]"
               >
-                <i v-html="icons.arrow"></i>
+                <i v-html="icons.arrow_down"></i>
               </button>
             </div>
           </div>
 
-          <div v-if="sectionVisible.gifts" class="body-2">
+          <div v-if="sectionVisible.rewards" class="body-2">
             <ul class="list-disc padding-x text-gray-800 ml-2 body-2">
               <li v-for="(reward, index) in value.rewards" :key="index">{{reward }}</li>
             </ul>
@@ -165,16 +167,18 @@ const sectionVisible = ref({
 
       <li>
         <div class="padding-x padding-y-sm flex flex-col gap-md">
-          <div class="flex items-center justify-between gap-md">
+          <div
+              class="flex items-center justify-between gap-md cursor-pointer"
+              @click.prevent="sectionVisible.cardDetails = !sectionVisible.cardDetails"
+          >
             <div class="flex items-center">
               <h4 class="subheading-2">Card details</h4>
             </div>
 
             <button
                 :class="['transition-rotate overflow-hidden', {'active': sectionVisible.cardDetails }]"
-                @click.prevent="sectionVisible.cardDetails = !sectionVisible.cardDetails"
             >
-              <i v-html="icons.arrow"></i>
+              <i v-html="icons.arrow_down"></i>
             </button>
           </div>
 
@@ -197,17 +201,19 @@ const sectionVisible = ref({
       </li>
 
       <li class="border-t">
-        <div class="padding-x padding-y-sm flex flex-col gap-md"  >
-          <div class="flex items-center justify-between gap-md">
+        <div class="padding-x padding-y-sm flex flex-col gap-md">
+          <div
+              class="flex items-center justify-between gap-md cursor-pointer"
+              @click.prevent="sectionVisible.expertAdvice = !sectionVisible.expertAdvice"
+          >
             <div class="flex items-center">
               <h4 class="subheading-2">Expert take</h4>
             </div>
 
             <button
                 :class="['transition-rotate overflow-hidden', {'active': sectionVisible.expertAdvice }]"
-                @click.prevent="sectionVisible.expertAdvice = !sectionVisible.expertAdvice"
             >
-              <i v-html="icons.arrow"></i>
+              <i v-html="icons.arrow_down"></i>
             </button>
           </div>
 

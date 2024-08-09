@@ -5,6 +5,14 @@ export const icons = {
     </svg>
   `,
 
+  arrow_down: `
+  <svg width="28" height="29" viewBox="0 0 28 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g id="Icons">
+    <path id="Vector" d="M13.9999 18.3724L7.40381 11.7763L8.63327 10.5469L13.9999 15.9135L19.3666 10.5469L20.5961 11.7763L13.9999 18.3724Z" fill="#212121"/>
+    </g>
+   </svg>
+  `,
+
   arrow_right: `
     <svg width="25" height="24" viewBox="0 0 25 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
       <path d="M14.1791 17.6514L13.1253 16.5668L16.9446 12.7476H4.83301V11.2476H16.9446L13.1253 7.42835L14.1791 6.34375L19.833 11.9976L14.1791 17.6514Z" fill="currentColor" />
