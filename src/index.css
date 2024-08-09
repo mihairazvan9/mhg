@@ -163,6 +163,9 @@
   .gap-t{
     @apply mt-4 xl:mt-6;
   }
+  .gap-b{
+    @apply mb-4 xl:mb-6;
+  }
   .gap-t-sm{
     @apply mt-2 xl:mt-4;
   }
@@ -171,6 +174,12 @@
   }
   .card-radius{
     @apply rounded-2xl xl:rounded-3xl;
+  }
+  .card-t-radius{
+    @apply rounded-t-2xl xl:rounded-t-3xl;
+  }
+  .card-b-radius{
+    @apply rounded-b-2xl xl:rounded-b-3xl;
   }
 }
 

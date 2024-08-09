@@ -15,6 +15,46 @@ import ArrowRight from "../assets/img/arrow-right.svg";
 import CardLogo from "../assets/img/card-1.png";
 import RewardThumb from "../assets/img/reward-thumb.png";
 import RewardThumb2 from "../assets/img/reward-thumb-1.png";
+import TheWrapper from "../components/TheWrapper.vue"
+import OfferCard from "../components/OfferCard.vue";
+
+const bestOffers = [
+  {
+    id: 1,
+    title: 'City PremierMiles Card',
+    rating: 4.9,
+    subtitle: 'Best overseas cashback in Singapore',
+    location: 'on Citybank’s website',
+    image: CardLogo,
+    features: [
+      {label: 'Annual fee', content: 'S$ 0', additionalDetails: ''},
+      {label: 'Rewards rate', content: '1.5% - 2%', additionalDetails: '...', extraInfo: 'Cashback'},
+      {label: 'Min. income', content: 'S$ 30,000', additionalDetails: '...'},
+      {label: 'Intro offer', content: '50k miles', additionalDetails: '...'},
+    ],
+    rewards: [
+      'Apple iPad 10th Gen WiFi 64GB (worth S$529); or',
+      'Dyson Supersonic™ hair dryer (worth S$699); or',
+      'Samsonite Straren Spinner 67/24 + 2x Apple AirTag worth S$690.80;',
+    ],
+    requiresAuthentication: true,
+    authenticationLink: '#',
+    fullReviewLink: '#',
+    cardDetails: [
+      '1.2 miles per S$1 spent locally.',
+      '2 miles per S$1 spent in foreign currency.',
+      'Citi Miles never expire. Can be exchanged for a variety of frequent flyer miles, hotel stays, rewards and cash rebates.',
+      'Use Citi PayAll to earn Citi Miles, Citi ThankYou PointsSM or Cash Back when you pay your bills with your Citi Credit Card.',
+      'Earn miles on rent, condo management fees, school fees, taxes and bills via Citi PayAll.',
+      '2 free airport lounge visits per year to over 1300 Priority Pass lounges worldwide.',
+      'Up to S$1 million travel insurance coverage when you charge your travel tickets to this card.',
+    ],
+    advice: {
+      content: '“If annual fees are not for you, there’s always the option of a fee waiver with 8,000 bonus miles- but I think the fee paying option is the better choice here.”',
+      link: '#',
+    },
+  },
+];
 </script>
 
 <template>
@@ -267,192 +307,12 @@ import RewardThumb2 from "../assets/img/reward-thumb-1.png";
       </div>
     </div>
   </div>
-  
-  <div class="bg-gray-100 padding-section-x pt-4">
-    <!-- Find the right credit card for you. -->
-      <div
-        class="bg-white flex flex-col md:flex-row md:items-center gap-md rounded-2xl padding-x padding-y shadow margin-y"
-      >
-        <div class="flex flex-col gap-xs">
-          <h3 class="display-1">Find the right credit card for you.</h3>
-          <p class="text-gray-600 body-2 mt-1">
-            Whether you want to pay less interest or earn more rewards, the
-            right card's out there. Just answer a few questions and we'll narrow
-            the search for you.
-          </p>
-        </div>
-        <a
-          href=""
-          class="w-max flex-shrink-0 text-white button-1 bg-primary px-6 button-radius py-2"
-        >
-          Get started</a
-        >
-      </div>
-    <h3 class="display-1">Best Offers of 2024</h3>
-    <div class="bg-white padding-y gap-t card-radius shadow">
-      <div class="bg-primary-light padding-x-sm padding-y-sm flex items-center gap-sm text-primary rounded margin-x">
-        <img :src="IconTick" alt="icon">
-        <p class="subheading-2">Best for: Cash back for travel bookings</p>
-      </div>
-      <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-md gap-t padding-x w-full lg:w-auto">
-        <div class="flex flex-col lg:flex-row gap-sm w-full lg:w-auto">
-          <div class="flex justify-center md:justify-start">
-            <img :src="CardLogo" alt="card">
-          </div>
-          <div class="flex flex-col gap-xs">
-            <h3 class="display-1">Chase <span class="block">Freedom Unlimited</span></h3>
-            <div class="flex flex-col lg:flex-row items-start lg:items-center gap-sm">
-              <span class="tag-text bg-primary-light padding-x-sm py-0.5 rounded-full">No rebate cap</span>
-              <span class="tag-text bg-gray-100 padding-x-sm py-0.5 rounded-full">No monthly spend required</span>
-              <span class="tag-text bg-gray-100 padding-x-sm py-0.5 rounded-full">Annual Fee waiver</span>
-            </div>
-          </div>
-        </div>
-        <div class="flex flex-col gap-xs w-full lg:w-auto items-center lg:items-start">
-          <a
-              href="#"
-              class="flex justify-center items-center button-1 padding-x-sm padding-y-xs bg-cta gap-xs text-white button-radius"
-            >
-              Apply Now
-              <img :src="ArrowRight" alt="arrow" />
-            </a>
-          <p class="body-2">on Chase’s website</p>
-        </div>
-      </div>
-      <div class="flex flex-col md:flex-row gap-md gap-t padding-x">
-        <div class="flex gap-xs flex-col flex-1">
-          <p class="body-2">Annual fee</p>
-          <p class="subheading-2">$0</p>
-        </div>
-        <div class="flex gap-xs flex-col flex-1">
-          <p class="body-2">Cashback Base Rate</p>
-          <p class="subheading-2">1.5%-5%</p>
-          <p class="body-2">Cashback</p>
-        </div>
-        <div class="flex gap-xs flex-col flex-1">
-          <p class="body-2">Cashback Overseas</p>
-          <p class="subheading-2">1.5%</p>
-        </div>
-        <div class="flex gap-xs flex-col flex-1">
-          <p class="body-2">Minimum Annual Income</p>
-          <p class="subheading-2">Up to $300</p>
-        </div>
-      </div>
-      <div class="gap-t padding-x">
-        <h3 class="title-2">Rewards to choose from</h3>
-        <div class="flex gap-xs gap-t-xs overflow-x-scroll relative">
-          <div class="flex flex-col md:flex-row flex-shrink-0 basis-10/12 md:basis-5/12 padding-x-sm padding-y-sm gap-sm bg-gray-100 card-radius">
-            <div>
-              <img :src="RewardThumb" alt="award">
-            </div>
-            <div class="flex flex-col gap-xs">
-              <p class="button-2 text-primary">Dyson Supersonic™ hair dryer (worth S$699)</p>
-              <a href="#" class="underline tag-tex hidden md:inline-block">T&Cs apply</a>
-            </div>
-          </div>
-          <div class="flex flex-col md:flex-row flex-shrink-0 basis-10/12 md:basis-5/12 padding-x-sm padding-y-sm gap-sm bg-gray-100 card-radius">
-            <div>
-              <img :src="RewardThumb2" alt="award">
-            </div>
-            <div class="flex flex-col gap-xs">
-              <p class="button-2 text-primary">Dyson Supersonic™ hair dryer (worth S$699)</p>
-              <a href="#" class="underline tag-tex hidden md:inline-block">T&Cs apply</a>
-            </div>
-          </div>
-          <div class="flex flex-col md:flex-row flex-shrink-0 basis-10/12 md:basis-5/12 padding-x-sm padding-y-sm gap-sm bg-gray-100 card-radius">
-            <div>
-              <img :src="RewardThumb2" alt="award">
-            </div>
-            <div class="flex flex-col gap-xs">
-              <p class="button-2 text-primary">Dyson Supersonic™ hair dryer (worth S$699)</p>
-              <a href="#" class="underline tag-tex hidden md:inline-block">T&Cs apply</a>
-            </div>
-          </div>
-          <div class="absolute right-0 top-0 padding-x w-3/12 h-full flex justify-end items-center bg-gradient-to-l from-gray-100 to-transparent">
-            <button class="w-12 h-12 button-radius flex items-center justify-center border border-gray-600 bg-white">
-              <img :src="ArrowRight" alt="icon">
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="gap-t padding-x">
-        <h3 class="title-2">And you also get this</h3>
-        <div class="flex gap-xs gap-t-xs overflow-x-scroll relative">
-          <div class="flex flex-col md:flex-row flex-shrink-0 basis-10/12 md:basis-5/12 padding-x-sm padding-y-sm gap-sm bg-gray-100 card-radius">
-            <div>
-              <img :src="RewardThumb" alt="award">
-            </div>
-            <div class="flex flex-col gap-xs">
-              <p class="button-2 text-primary">Dyson Supersonic™ hair dryer (worth S$699)</p>
-              <a href="#" class="underline tag-tex hidden md:inline-block">T&Cs apply</a>
-            </div>
-          </div>
-          <div class="flex flex-col md:flex-row flex-shrink-0 basis-10/12 md:basis-5/12 padding-x-sm padding-y-sm gap-sm bg-gray-100 card-radius">
-            <div>
-              <img :src="RewardThumb2" alt="award">
-            </div>
-            <div class="flex flex-col gap-xs">
-              <p class="button-2 text-primary">Dyson Supersonic™ hair dryer (worth S$699)</p>
-              <a href="#" class="underline tag-tex hidden md:inline-block">T&Cs apply</a>
-            </div>
-          </div>
-          <div class="flex flex-col md:flex-row flex-shrink-0 basis-10/12 md:basis-5/12 padding-x-sm padding-y-sm gap-sm bg-gray-100 card-radius">
-            <div>
-              <img :src="RewardThumb2" alt="award">
-            </div>
-            <div class="flex flex-col gap-xs">
-              <p class="button-2 text-primary">Dyson Supersonic™ hair dryer (worth S$699)</p>
-              <a href="#" class="underline tag-tex hidden md:inline-block">T&Cs apply</a>
-            </div>
-          </div>
-          <div class="absolute right-0 top-0 padding-x w-3/12 h-full flex justify-end items-center bg-gradient-to-l from-gray-100 to-transparent">
-            <button class="w-12 h-12 button-radius flex items-center justify-center border border-gray-600 bg-white">
-              <img :src="ArrowRight" alt="icon">
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="gap-t padding-x padding-y-sm flex flex-col gap-sm border-y border-gray-300">
-        <div class="flex items-center justify-between">
-          <div class="flex items-center gap-sm">
-            <span class="material-symbols-outlined text-3xl">
-            credit_card
-            </span>
-            <h4 class="subheading-2">Card Details</h4>
-          </div>
-          <button>
-            <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M1.40002 7.03575L0.346191 5.98195L6.00002 0.328125L11.6538 5.98195L10.6 7.03575L6.00002 2.43575L1.40002 7.03575Z" fill="#212121"/>
-            </svg>
-          </button>
 
-        </div>
-        <div class="">
-          <p class="body-2"><a href="" class="underline">Secured credit cards</a> require you to provide a cash security deposit to open an account. Because that deposit protects the card company from risk, secured cards are much easier to qualify for than other cards. You're not guaranteed approval for a secured card, but the bar is much lower than for regular cards. Store credit cards are also generally easier to qualify for than bank cards.</p>
-        </div>
-      </div>
-      <div class="padding-x padding-y-sm flex flex-col gap-sm">
-        <div class="flex items-center justify-between">
-          <div class="flex items-center gap-sm">
-            <span class="material-symbols-outlined text-3xl">
-            diamond
-            </span>
-            <h4 class="subheading-2">Singsaver’s take</h4>
-          </div>
-          <button>
-            <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M1.40002 7.03575L0.346191 5.98195L6.00002 0.328125L11.6538 5.98195L10.6 7.03575L6.00002 2.43575L1.40002 7.03575Z" fill="#212121"/>
-            </svg>
-          </button>
+  <TheWrapper simple title="Best Offers of 2024" class="padding-section-x section-y-lg">
+    <OfferCard v-for="offer in bestOffers" :key="offer.id" :value="offer" class="pt-4"/>
+  </TheWrapper>
 
-        </div>
-        <div class="">
-          <p class="body-2"><a href="" class="underline">Secured credit cards</a> require you to provide a cash security deposit to open an account. Because that deposit protects the card company from risk, secured cards are much easier to qualify for than other cards. You're not guaranteed approval for a secured card, but the bar is much lower than for regular cards. Store credit cards are also generally easier to qualify for than bank cards.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="bg-gray-100 padding-section-x py-12">
+  <div class="bg-gray-100 padding-section-x py-12 pt-2">
     <div>
       <h3 class="display-1 mb-6">Beginner’s guide to credit cards</h3>
       <div class="mb-6">
