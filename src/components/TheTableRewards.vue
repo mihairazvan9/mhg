@@ -30,7 +30,7 @@
     const scrollElement = document.getElementById('scrollable-content')
     showLeftButton.value = scrollElement.scrollLeft > 0;
     showRightButton.value =
-      scrollElement.scrollLeft + scrollElement.clientWidth < scrollElement.scrollWidth;
+      scrollElement.scrollLeft + scrollElement.clientWidth < scrollElement.scrollWidth - 10;
   }
 
 
