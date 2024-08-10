@@ -1,5 +1,5 @@
 <script setup>
-  import { icons } from '@/assets/icons.js'
+  import Tooltip from '@/components/Tooltip.vue'
 
   const props = defineProps({
     data: {
@@ -13,19 +13,21 @@
   <!-- If we have primary_text in object -->
   <div class="">
     <div class="flex col items-center gap-2">
-      <p v-if="props.data.text" 
+      <p v-if="props.data.title" 
           class="body-1"
       >
-        {{ props.data.text }}
+        {{ props.data.title }}
       </p>
 
-      <i v-if="props.data.tooltip" v-html="icons.info"></i>
+      <template v-if="props.data.tooltip" >
+        <Tooltip :data="props.data.tooltip" />
+      </template>
     </div>
 
-    <span v-if="props.data.secondary_text" 
+    <span v-if="props.data.subtitle" 
           class="body-2"
     >
-      {{ props.data.secondary_text }}
+      {{ props.data.subtitle }}
     </span>
     
   </div>

@@ -1,311 +1,160 @@
 <script setup>
-  import { ref, markRaw, onMounted } from 'vue'
+  import { ref, onMounted } from 'vue'
 
-  import TextImage from "@/components/Table/TextImage.vue"
-  import Text from "@/components/Table/Text.vue"
-  import TextCTA from "@/components/Table/TextCTA.vue"
-  import TextButton from "@/components/Table/TextButton.vue"
-  import TheTableRewards from "@/components/TheTableRewards.vue"
+  import Rewards from "@/components/Table/Rewards.vue"
 
-  import CardLogo from "@/assets/img/card-1.png";
-
-  const table = ref({
-    header: ['Credit Card', 'Annual Fee', 'Minimum Annual Income', 'Airport Lounge Access', 'Credit Card Rewards', 'Offers & Rewards', 'Apply on the Provider’s Website' ],
-    rows: [
-      [
-        {
-          component: markRaw(TextImage), 
-          data: {
-            text: 'Chase Freedom Wallet',
-            src: CardLogo,
-            alt: 'Card image'
-          }      
-        },
-        
-        {
-          component: markRaw(Text),
-          data: { 
-            text: 'S$ 0'
-          }       
-        },
-
-        {
-          component: markRaw(Text),
-          data: { 
-            text: 'S$ 30,000',
-            tooltip: 'Infos',
-          }       
-        },
-
-        {
-          component: markRaw(Text),
-          data: { 
-            text: '2',
-            secondary_text: 'visits per year*',
-            tooltip: 'Infos',
-          }       
-        },
-
-        {
-          component: markRaw(Text),
-          data: { 
-            text: '2',
-            secondary_text: 'miles per dollar',
-          }       
-        },
-
-        {
-          component: markRaw(TextCTA),
-          data: { 
-            text: 'Intro Offer: 50 miles',
-            cta: {
-              text: 'Eligible rewards (8)',
-              id: '1000',
-            }
-          }       
-        },
-
-        {
-          component: markRaw(TextButton),
-          data: { 
-            text: 'On Chase’s Website',
-            button: {
-              link: '#',
-              titlle: ''
-            }
-          }       
-        },
-
-      ],
-      [
-        {
-          component: markRaw(TextImage), 
-          data: {
-            text: 'Chase Freedom Wallet',
-            src: CardLogo,
-            alt: 'Card image'
-          }      
-        },
-        
-        {
-          component: markRaw(Text),
-          data: { 
-            text: 'S$ 0'
-          }       
-        },
-
-        {
-          component: markRaw(Text),
-          data: { 
-            text: 'S$ 30,000',
-            tooltip: 'Infos',
-          }       
-        },
-
-        {
-          component: markRaw(Text),
-          data: { 
-            text: '2',
-            secondary_text: 'visits per year*',
-            tooltip: 'Infos',
-          }       
-        },
-
-        {
-          component: markRaw(Text),
-          data: { 
-            text: '2',
-            secondary_text: 'miles per dollar',
-          }       
-        },
-
-        {
-          component: markRaw(TextCTA),
-          data: { 
-            text: 'Intro Offer: 50 miles',
-            cta: {
-              text: 'Eligible rewards (8)',
-              id: '1000',
-            }
-          }       
-        },
-
-        {
-          component: markRaw(TextButton),
-          data: { 
-            text: 'On Chase’s Website',
-            button: {
-              link: '#',
-              titlle: ''
-            }
-          }       
-        },
-
-      ],
-      // [
-      //   {
-      //     component: markRaw(TextImage), 
-      //     data: {
-      //       text: 'Chase Freedom Wallet',
-      //       src: CardLogo,
-      //       alt: 'Card image'
-      //     }      
-      //   },
-        
-      //   {
-      //     component: markRaw(Text),
-      //     data: { 
-      //       text: 'S$ 0'
-      //     }       
-      //   },
-
-      //   {
-      //     component: markRaw(Text),
-      //     data: { 
-      //       text: 'S$ 30,000',
-      //       tooltip: 'Infos',
-      //     }       
-      //   },
-
-      //   {
-      //     component: markRaw(Text),
-      //     data: { 
-      //       text: '2',
-      //       secondary_text: 'visits per year*',
-      //       tooltip: 'Infos',
-      //     }       
-      //   },
-
-      //   {
-      //     component: markRaw(Text),
-      //     data: { 
-      //       text: '2',
-      //       secondary_text: 'miles per dollar',
-      //     }       
-      //   },
-
-      //   {
-      //     component: markRaw(TextCTA),
-      //     data: { 
-      //       text: 'Intro Offer: 50 miles',
-      //       cta: {
-      //         text: 'Eligible rewards (8)',
-      //         id: '1000',
-      //       }
-      //     }       
-      //   },
-
-      //   {
-      //     component: markRaw(TextButton),
-      //     data: { 
-      //       text: 'On Chase’s Website',
-      //       button: {
-      //         link: '#',
-      //         titlle: ''
-      //       }
-      //     }       
-      //   },
-
-      // ],
-    ]
+  const props = defineProps({
+    table: {
+      type: Object,
+      required: true
+    }
   })
 
-  let last_tr = null
-  function handle_open_reward ({event, id}) {
-    if (last_tr) {
-      last_tr.style.borderBottom = 'unset'
-      last_tr = null
-    }
+  const active_reward = ref(0)
 
-    const table = event.currentTarget.closest('.table-wrapper')
-    const tr = event.currentTarget.closest('tr')
-    const rewards = document.getElementById('table-rewards')
-    const bb_table = table.getBoundingClientRect()
-    const bb_tr = tr.getBoundingClientRect()
-    const bb_rewards = rewards.getBoundingClientRect()
+  let is_dragging = false
+  let startX
+  let scroll_left
+  
+  onMounted(() => {
+    const scrollable_div = document.getElementById('table-container')
 
-    // Calculate top position for rewards
-    rewards.style.top = bb_tr.top - bb_table.top + tr.offsetHeight + 'px';
+    scrollable_div.addEventListener('mousedown', (e) => {
+      is_dragging = true
+      startX = e.pageX - scrollable_div.offsetLeft
+      scroll_left = scrollable_div.scrollLeft
+      scrollable_div.style.cursor = 'grabbing'
+    })
 
-    tr.style.borderBottom = `solid #fff ${rewards.offsetHeight}px`
-    
-    last_tr = tr
-  }
+    scrollable_div.addEventListener('mouseleave', () => {
+      is_dragging = false
+      scrollable_div.style.cursor = 'grab'
+    })
+
+    scrollable_div.addEventListener('mouseup', () => {
+      is_dragging = false
+      scrollable_div.style.cursor = 'grab'
+    })
+
+    scrollable_div.addEventListener('mousemove', (e) => {
+      if (!is_dragging) return
+      e.preventDefault()
+      const x = e.pageX - scrollable_div.offsetLeft
+      const walk = (x - startX) * 1 // Adjust the multiplier
+      scrollable_div.scrollLeft = scroll_left - walk
+    })
+  })
 
   function get_last_two_cells (row) {
     return row.slice(-2);
   }
 
-  onMounted(() => {
-
-    const table = [...document.getElementsByClassName('table-container')]
-    const tr = [...document.getElementsByTagName('tr')]
-
-
-    setTimeout(() =>{
-      console.log(window.innerWidth)
-      if (window.innerWidth > 768) {
-        handle_open_reward({event: {currentTarget: tr[0]}, id: 0})
-      } else {
-        handle_open_reward({event: {currentTarget: tr[1]}, id: 0})
-      }
-
-    },1000)
-  })
-
+  function handle_open_reward (reward_id) {
+    if (active_reward.value === reward_id)  {
+      active_reward.value = -1
+    } else {
+      active_reward.value = reward_id
+    }
+  }
 </script>
 
 <template>
-  <div class="relative h-auto table-wrapper overflow-hidden">
-    <div class="overflow-x-auto relative h-auto">
-      <div class="w-[800px] lg:w-full table-container">
-        <table class="w-full gap-t card-radius overflow-hidden">
-          <thead class="text-left">
-            <th class="subheading-2 padding-x padding-y bg-gray-100"
-                v-for="(tab, index) in table.header"
-                :class="{'hidden md:table-cell': index >= table.header.length - 2}"
-            >
-              {{ tab }}
-            </th>
-          </thead>
-          <tbody class="">
-            <template v-for="(row, rowIndex) in table.rows" :key="rowIndex">
-              <!-- Main row with table data -->
-              <tr class="md:hover:bg-gray-50 bg-white">
-                <td v-for="(cell, cellIndex) in row"
-                    class="padding-x padding-y border-t border-gray-300"
-                    :class="{'hidden md:table-cell': cellIndex >= row.length - 2}"
-                >
-                  <component :is="cell.component" 
-                            :data="cell.data"
-                            @handle-open-rewards="handle_open_reward"
-                  >
-                  </component>
-                </td>
-              </tr>
-              <!-- Row for mobile version with buttons -->
-              <tr class="bg-white cell md:hidden">
-                <td colspan="100%" class="padding-x padding-y ">
-                  <div class="flex gap-2 items-center">
-                    <div v-for="cell in get_last_two_cells(row)">
-                      <component :is="cell.component" 
-                                :data="cell.data"
-                                @handle-open-rewards="handle_open_reward"
-                      >
-                      </component>
-                    </div>
+  <div class="gap-t card-radius overflow-hidden relative select-none ">
+    <div id="table-container">
+      <table class="min-w-[1024px] w-full bg-white">
+        <thead class="text-left contents">
+          <th 
+            v-for="(tab, index) in props.table.header"
+            class="flex items-center subheading-2 padding-x padding-y bg-gray-100"
+            :class="{'hidden md:flex': index >= props.table.header.length - 2}"
+          >
+            {{ tab }}
+          </th>
+        </thead>
+
+        <tbody class="contents">
+          <template v-for="(row, rowIndex) in props.table.body" :key="rowIndex">
+            <tr class="md:hover:bg-gray-50 contents table-line">
+
+              <td 
+                v-for="(cell, cellIndex) in row.rows"
+                class="flex items-center bg-white padding-x padding-y border-t border-gray-300"
+                :class="{'hidden md:flex': cellIndex >= row.rows.length - 2}"
+              >
+              
+                <component 
+                  :is="cell.component" 
+                  :data="cell.data"
+                  :reward_id="rowIndex"
+                  @handle-open-rewards="handle_open_reward"
+                />
+
+              </td>
+
+              <td 
+                colspan="7" 
+                class="flex md:hidden padding-x padding-y bg-white"
+              >
+                <div class="flex flex-row-reverse gap-2">
+                  <div v-for="cell in get_last_two_cells(row.rows)">
+                    <component 
+                      :is="cell.component" 
+                      :data="cell.data"
+                      :reward_id="rowIndex"
+                      @handle-open-rewards="handle_open_reward"
+                    />
                   </div>
-                </td>
-              </tr>
-            </template>
-          </tbody>
-        </table>
-      </div>
+                </div>
+              </td>
+
+            </tr>
+
+            <tr 
+              class="bg-white contents" 
+              v-show="active_reward === rowIndex"
+            >
+              <td colspan="7" class="flex relative">
+                <Rewards 
+                  :data="row.rewards"
+                />
+              </td>
+            </tr>
+
+          </template>
+        </tbody>
+      </table>
     </div>
-    <TheTableRewards id="table-rewards" />
   </div>
 </template>
 
-<style>
+<style scoped>
+  #table-container {
+    overflow-x: auto;
+    width: 100%;
+    position: relative; 
+  }
 
+  #table-container::-webkit-scrollbar {
+    display: none; 
+  }
+
+  #table-container {
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+  }
+
+  #table-container table {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(auto, 1fr));
+  }
+
+  @media (min-width: 768px) {
+    #table-container table {
+      grid-template-columns: repeat(7, minmax(auto, 1fr));
+    }
+  }
+
+  #table-container [colspan="7"] {
+    grid-column: 1 / -1;
+  }
 </style>

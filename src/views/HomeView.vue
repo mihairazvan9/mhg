@@ -1,4 +1,6 @@
 <script setup>
+import { ref, markRaw, onMounted } from 'vue'
+import rewardImg from '@/assets/img/airunes1.png'
 import SiteLogo from "../assets/img/singsaver.svg";
 import MenuLine from "../assets/img/menu-line.svg";
 import IconProfile from "../assets/img/icon-profile.svg";
@@ -20,7 +22,185 @@ import OfferCard from "../components/OfferCard.vue";
 import TheFooter from "../components/TheFooter.vue";
 import TheHeader from "../components/TheHeader.vue";
 import Breadcrumb from "../components/Breadcrumb.vue";
+
 import TheTable from "../components/TheTable.vue";
+import TextImage from "@/components/Table/TextImage.vue"
+import Text from "@/components/Table/Text.vue"
+import TextCTA from "@/components/Table/TextCTA.vue"
+import TextButton from "@/components/Table/TextButton.vue"
+
+const table = ref({
+  header: ['Credit Card', 'Annual Fee', 'Minimum Annual Income', 'Airport Lounge Access', 'Credit Card Rewards', 'Offers & Rewards', 'Apply on the Provider’s Website' ],
+  
+  body: [
+    {
+      rows: [
+        {
+          component: markRaw(TextImage), 
+          data: {
+            title: 'Chase Freedom Wallet',
+            src: CardLogo,
+            alt: 'Card image'
+          }      
+        },
+        
+        {
+          component: markRaw(Text),
+          data: { 
+            title: 'S$ 0'
+          }       
+        },
+
+        {
+          component: markRaw(Text),
+          data: { 
+            title: 'S$ 30,000',
+            tooltip: 'Infos',
+          }       
+        },
+
+        {
+          component: markRaw(Text),
+          data: { 
+            title: '2',
+            subtitle: 'visits per year*',
+            tooltip: 'Infos',
+          }       
+        },
+
+        {
+          component: markRaw(Text),
+          data: { 
+            title: '2',
+            subtitle: 'miles per dollar',
+          }       
+        },
+
+        {
+          component: markRaw(TextCTA),
+          data: { 
+            title: 'Intro Offer: 50 miles',
+            no: '8',
+          }       
+        },
+
+        {
+          component: markRaw(TextButton),
+          data: { 
+            title: 'On Chase’s Website',
+            link: '#',
+          }       
+        },
+
+      ],
+
+      rewards:[
+          {
+            link: '#',
+            title: 'Dyson Supersonic™ hair dryer (worth S$699)',
+            subtitle: 'T&Cs apply',
+            image: rewardImg
+          },
+          {
+            link: '#',
+            title: 'Dyson Supersonic™ hair dryer (worth S$699)',
+            subtitle: 'T&Cs apply',
+            image: rewardImg
+          },
+          {
+            link: '#',
+            title: 'Dyson Supersonic™ hair dryer (worth S$699)',
+            subtitle: 'T&Cs apply',
+            image: rewardImg
+          },
+      ]
+    },
+
+    {
+      rows: [
+        {
+          component: markRaw(TextImage), 
+          data: {
+            title: 'Chase Freedom Wallet',
+            src: CardLogo,
+            alt: 'Card image'
+          }      
+        },
+        
+        {
+          component: markRaw(Text),
+          data: { 
+            title: 'S$ 0'
+          }       
+        },
+
+        {
+          component: markRaw(Text),
+          data: { 
+            title: 'S$ 30,000',
+            tooltip: 'Infos',
+          }       
+        },
+
+        {
+          component: markRaw(Text),
+          data: { 
+            title: '2',
+            subtitle: 'visits per year*',
+            tooltip: 'Infos',
+          }       
+        },
+
+        {
+          component: markRaw(Text),
+          data: { 
+            title: '2',
+            subtitle: 'miles per dollar',
+          }       
+        },
+
+        {
+          component: markRaw(TextCTA),
+          data: { 
+            title: 'Intro Offer: 50 miles',
+            no: '6',
+          }       
+        },
+
+        {
+          component: markRaw(TextButton),
+          data: { 
+            title: 'On Chase’s Website',
+            link: '#',
+          }       
+        },
+
+      ],
+
+      rewards:[
+          {
+            link: '#',
+            title: 'Dyson Supersonic™ hair dryer (worth S$699)',
+            subtitle: 'T&Cs apply',
+            image: rewardImg
+          },
+          {
+            link: '#',
+            title: 'Dyson Supersonic™ hair dryer (worth S$699)',
+            subtitle: 'T&Cs apply',
+            image: rewardImg
+          },
+          {
+            link: '#',
+            title: 'Dyson Supersonic™ hair dryer (worth S$699)',
+            subtitle: 'T&Cs apply',
+            image: rewardImg
+          },
+      ]
+    },
+
+  ]
+})
 
 const bestOffers = [
   {
@@ -108,8 +288,8 @@ const placeholder_breadcrumb = [
               </div>
             </div>
             <a
-                href=""
-                class="w-max flex-shrink-0 text-white button-1 bg-primary px-6 button-radius py-2"
+              href=""
+              class="w-max flex-shrink-0 text-white button-1 bg-primary px-6 button-radius py-2"
             >
               Get started</a
             >
@@ -121,7 +301,7 @@ const placeholder_breadcrumb = [
     </div>
 
     <TheWrapper full title="Best Travel Cards of August 2024">
-      <TheTable />
+      <TheTable :table="table" />
     </TheWrapper>
 
     <div class="mx-auto max-w-screen-2xl px-6 xl:px-10">

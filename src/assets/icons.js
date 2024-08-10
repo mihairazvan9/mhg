@@ -1,4 +1,16 @@
 export const icons = {
+  diamond: `
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
+    <g id="Icons">
+    <mask id="mask0_18229_17186" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="22" height="22">
+    <rect id="Bounding box" width="22" height="22" fill="#D9D9D9"/>
+    </mask>
+    <g mask="url(#mask0_18229_17186)">
+    <path id="diamond" d="M11 18.886L2.10651 8.2121L4.72428 2.97656H17.2757L19.8935 8.2121L11 18.886ZM8.45259 7.5599H13.5474L11.943 4.35156H10.057L8.45259 7.5599ZM10.3125 15.9174V8.9349H4.51092L10.3125 15.9174ZM11.6875 15.9174L17.4891 8.9349H11.6875V15.9174ZM15.0757 7.5599H18.0162L16.4118 4.35156H13.4713L15.0757 7.5599ZM3.98384 7.5599H6.92428L8.52867 4.35156H5.58824L3.98384 7.5599Z" fill="#04709B"/>
+    </g></g>
+    </svg>
+
+  `,
   info: `
     <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <mask id="mask0_18084_13976" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="24">

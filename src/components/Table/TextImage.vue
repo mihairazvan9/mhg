@@ -13,7 +13,7 @@
       <img :src="props.data.src" :alt="props.data.alt || 'Singsave'">
     </div>
     <p class="body-2 !text-gray-900">
-      {{ props.data.text }}
+      {{ props.data.title }}
     </p>
   </div>
 </template>
