@@ -5,18 +5,9 @@ import SiteLogo from "../assets/img/singsaver.svg";
 import MenuLine from "../assets/img/menu-line.svg";
 import IconProfile from "../assets/img/icon-profile.svg";
 import ImgAuthor from "../assets/img/author.png";
-import IconTick from "../assets/img/tick.svg";
 import IconX from "../assets/img/x.svg";
 import IconMail from "../assets/img/mail.svg";
-import LogoWhite from "../assets/img/singsaver-white.svg";
-import LogoFacebook from "../assets/img/facebook.svg";
-import LogoYoutube from "../assets/img/youtube.svg";
-import LogoInstagram from "../assets/img/instagram.svg";
-import LogoLinkedin from "../assets/img/linkedin.svg";
-import ArrowRight from "../assets/img/arrow-right.svg";
 import CardLogo from "../assets/img/card-1.png";
-import RewardThumb from "../assets/img/reward-thumb.png";
-import RewardThumb2 from "../assets/img/reward-thumb-1.png";
 import TheWrapper from "../components/TheWrapper.vue"
 import OfferCard from "../components/OfferCard.vue";
 import TheFooter from "../components/TheFooter.vue";
@@ -274,10 +265,9 @@ const placeholder_breadcrumb = [
           >
             <div class="flex flex-col md:flex-row lg:items-center gap-md">
               <div class="w-16 h-16 flex items-center justify-center bg-primary-light rounded-full flex-shrink-0">
-          <span class="material-symbols-outlined text-4xl text-primary">
-            credit_card
-            </span>
+                <span class="material-symbols-outlined text-4xl text-primary">credit_card</span>
               </div>
+
               <div class="flex flex-col gap-xs">
                 <h3 class="display-1">Find the right credit card for you.</h3>
                 <p class="text-gray-600 body-2 mt-1">
