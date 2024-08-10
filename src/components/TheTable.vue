@@ -250,7 +250,7 @@
         handle_open_reward({event: {currentTarget: tr[1]}, id: 0})
       }
 
-    },100)
+    },1000)
   })
 
 </script>
