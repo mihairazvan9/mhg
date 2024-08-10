@@ -21,13 +21,11 @@ import TextCTA from "@/components/Table/TextCTA.vue"
 import TextButton from "@/components/Table/TextButton.vue"
 
 const table = ref({
-  header: ['Credit Card', 'Annual Fee', 'Minimum Annual Income', 'Airport Lounge Access', 'Credit Card Rewards', 'Offers & Rewards', 'Apply on the Provider’s Website' ],
   
   body: [
     {
       rows: [
         {
-          component: markRaw(TextImage), 
           data: {
             title: 'Chase Freedom Wallet',
             src: CardLogo,
@@ -36,14 +34,12 @@ const table = ref({
         },
         
         {
-          component: markRaw(Text),
           data: { 
             title: 'S$ 0'
           }       
         },
 
         {
-          component: markRaw(Text),
           data: { 
             title: 'S$ 30,000',
             tooltip: 'Infos',
@@ -51,7 +47,6 @@ const table = ref({
         },
 
         {
-          component: markRaw(Text),
           data: { 
             title: '2',
             subtitle: 'visits per year*',
@@ -60,7 +55,6 @@ const table = ref({
         },
 
         {
-          component: markRaw(Text),
           data: { 
             title: '2',
             subtitle: 'miles per dollar',
@@ -68,7 +62,6 @@ const table = ref({
         },
 
         {
-          component: markRaw(TextCTA),
           data: { 
             title: 'Intro Offer: 50 miles',
             no: '8',
@@ -76,7 +69,6 @@ const table = ref({
         },
 
         {
-          component: markRaw(TextButton),
           data: { 
             title: 'On Chase’s Website',
             link: '#',
@@ -110,7 +102,6 @@ const table = ref({
     {
       rows: [
         {
-          component: markRaw(TextImage), 
           data: {
             title: 'Chase Freedom Wallet',
             src: CardLogo,
@@ -119,14 +110,12 @@ const table = ref({
         },
         
         {
-          component: markRaw(Text),
           data: { 
             title: 'S$ 0'
           }       
         },
 
         {
-          component: markRaw(Text),
           data: { 
             title: 'S$ 30,000',
             tooltip: 'Infos',
@@ -134,7 +123,6 @@ const table = ref({
         },
 
         {
-          component: markRaw(Text),
           data: { 
             title: '2',
             subtitle: 'visits per year*',
@@ -143,7 +131,6 @@ const table = ref({
         },
 
         {
-          component: markRaw(Text),
           data: { 
             title: '2',
             subtitle: 'miles per dollar',
@@ -151,7 +138,6 @@ const table = ref({
         },
 
         {
-          component: markRaw(TextCTA),
           data: { 
             title: 'Intro Offer: 50 miles',
             no: '6',
@@ -159,7 +145,6 @@ const table = ref({
         },
 
         {
-          component: markRaw(TextButton),
           data: { 
             title: 'On Chase’s Website',
             link: '#',

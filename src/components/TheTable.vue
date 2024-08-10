@@ -1,7 +1,11 @@
 <script setup>
-  import { ref, onMounted } from 'vue'
+  import { ref, markRaw, onMounted } from 'vue'
 
   import Rewards from "@/components/Table/Rewards.vue"
+  import TextImage from "@/components/Table/TextImage.vue"
+  import Text from "@/components/Table/Text.vue"
+  import TextCTA from "@/components/Table/TextCTA.vue"
+  import TextButton from "@/components/Table/TextButton.vue"
 
   const props = defineProps({
     table: {
@@ -45,10 +49,6 @@
     })
   })
 
-  function get_last_two_cells (row) {
-    return row.slice(-2);
-  }
-
   function handle_open_reward (reward_id) {
     if (active_reward.value === reward_id)  {
       active_reward.value = -1
@@ -56,6 +56,18 @@
       active_reward.value = reward_id
     }
   }
+
+  const header = ['Credit Card', 'Annual Fee', 'Minimum Annual Income', 'Airport Lounge Access', 'Credit Card Rewards', 'Offers & Rewards', 'Apply on the Provider’s Website' ]
+
+  const components = [
+    markRaw(TextImage),
+    markRaw(Text),
+    markRaw(Text),
+    markRaw(Text),
+    markRaw(Text),
+    markRaw(TextCTA),
+    markRaw(TextButton)
+  ]
 </script>
 
 <template>
@@ -64,9 +76,9 @@
       <table class="min-w-[1024px] w-full bg-white">
         <thead class="text-left contents">
           <th 
-            v-for="(tab, index) in props.table.header"
+            v-for="(tab, index) in header"
             class="flex items-center subheading-2 padding-x padding-y bg-gray-100"
-            :class="{'hidden md:flex': index >= props.table.header.length - 2}"
+            :class="{'hidden md:flex': index >= header.length - 2}"
           >
             {{ tab }}
           </th>
@@ -81,9 +93,9 @@
                 class="flex items-center bg-white padding-x padding-y border-t border-gray-300"
                 :class="{'hidden md:flex': cellIndex >= row.rows.length - 2}"
               >
-              
+
                 <component 
-                  :is="cell.component" 
+                  :is="components[cellIndex]" 
                   :data="cell.data"
                   :reward_id="rowIndex"
                   @handle-open-rewards="handle_open_reward"
@@ -96,14 +108,15 @@
                 class="flex md:hidden padding-x padding-y bg-white"
               >
                 <div class="flex flex-row-reverse gap-2">
-                  <div v-for="cell in get_last_two_cells(row.rows)">
+                  <template v-for="(cell, cellIndex) in row.rows">
                     <component 
-                      :is="cell.component" 
+                      v-if="cellIndex >= 5"
+                      :is="components[cellIndex]"
                       :data="cell.data"
                       :reward_id="rowIndex"
                       @handle-open-rewards="handle_open_reward"
                     />
-                  </div>
+                  </template>
                 </div>
               </td>
 
@@ -114,9 +127,7 @@
               v-show="active_reward === rowIndex"
             >
               <td colspan="7" class="flex relative">
-                <Rewards 
-                  :data="row.rewards"
-                />
+                <Rewards :data="row.rewards" />
               </td>
             </tr>
 

@@ -9,7 +9,7 @@
     },
   })
 
-  const showLeftButton = ref(false);
+  const showLeftButton = ref(true);
   const showRightButton = ref(true);
 
   function scroll_left () {
@@ -18,7 +18,7 @@
       behavior: 'smooth'
     })
 
-    updateScrollButtons()
+    // updateScrollButtons()
   }
 
   function scroll_right () {
@@ -27,7 +27,7 @@
       behavior: 'smooth'
     })
 
-    updateScrollButtons()
+    // updateScrollButtons()
   }
 
   function updateScrollButtons() {
