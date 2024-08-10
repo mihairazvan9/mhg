@@ -127,7 +127,7 @@
               v-show="active_reward === rowIndex"
             >
               <td colspan="7" class="flex relative">
-                <Rewards :data="row.rewards" />
+                <Rewards :data="row.rewards" :index="rowIndex" />
               </td>
             </tr>
 

@@ -7,31 +7,35 @@
       type: Array,
       required: true
     },
+    index: {
+      type: Number,
+      required: true
+    },
   })
 
-  const showLeftButton = ref(true);
+  const showLeftButton = ref(false);
   const showRightButton = ref(true);
 
   function scroll_left () {
-    document.getElementById('scrollable-content').scrollBy({
+    document.getElementById(`rewards-scrollable-${props.index}`).scrollBy({
       left: -300,
       behavior: 'smooth'
     })
 
-    // updateScrollButtons()
+    updateScrollButtons()
   }
 
   function scroll_right () {
-    document.getElementById('scrollable-content').scrollBy({
+    document.getElementById(`rewards-scrollable-${props.index}`).scrollBy({
       left: 300,
       behavior: 'smooth'
     })
 
-    // updateScrollButtons()
+    updateScrollButtons()
   }
 
   function updateScrollButtons() {
-    const scrollElement = document.getElementById('scrollable-content')
+    const scrollElement = document.getElementById(`rewards-scrollable-${props.index}`)
     showLeftButton.value = scrollElement.scrollLeft > 0;
     showRightButton.value = scrollElement.scrollLeft + 
                             scrollElement.clientWidth < scrollElement.scrollWidth - 10;
@@ -51,7 +55,7 @@
       <i v-html="icons.arrow_right"></i>
     </button>
 
-      <div id="scrollable-content" class="rewards-scrollable flex flex-row gap-4 overflow-hidden">
+      <div :id="`rewards-scrollable-${props.index}`" class="rewards-scrollable flex flex-row gap-4 overflow-hidden">
         <template v-for="reward in props.data">
           <a :href="props.data.link" class="cursor-pointer">
             <div class="flex flex-row gap-2 p-3 h-32 w-max bg-gray-100 rounded-xl">
