@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/views/HomeView.vue';
 import ArticleView from "@/views/ArticleView.vue";
 import NavbarView from "@/views/NavbarView.vue";
-import PersonalLoansView from "@/views/PersonalLoansView.vue";
+// import PersonalLoansView from "@/views/PersonalLoansView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -25,11 +25,11 @@ const router = createRouter({
       name: 'article',
       component: ArticleView,
     },
-    {
-      path: '/personal-loans',
-      name: 'personal-loans',
-      component: PersonalLoansView,
-    },
+    // {
+    //   path: '/personal-loans',
+    //   name: 'personal-loans',
+    //   component: PersonalLoansView,
+    // },
     {
       path: '/navbar-page',
       name: 'navbar',
