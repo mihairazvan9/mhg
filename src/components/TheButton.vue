@@ -49,8 +49,8 @@
         props.background,
         props.color,
         props.width,
-        props.outline ? `${props.outline} border-solid border-2` : '',
-        'flex flex-shrink-0 items-center justify-center gap-x-2 button-padding-x py-2.5 button-1 button-radius'
+        props.outline ? `${props.outline} border-solid border-2 py-2` : 'py-2.5',
+        'flex flex-shrink-0 items-center justify-center gap-x-2 button-padding-x button-1 button-radius'
      ]"
   >
     <!-- Left icon -->
