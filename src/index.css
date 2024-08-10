@@ -97,6 +97,9 @@
   .button-2 {
     @apply text-sm md:text-base xl:text-lg font-semibold leading-sm md:leading-base xl:leading-lg;
   }
+  .responsive-text {
+    @apply text-sm md:text-base xl:text-lg leading-sm md:leading-base xl:leading-lg;
+  }
   .caption-text {
     @apply text-xs md:text-sm xl:text-base font-medium leading-xs md:leading-sm xl:leading-base;
   }

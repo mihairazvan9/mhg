@@ -11,33 +11,49 @@
       type: Boolean,
       default: false,
       required: false
-    }
-  })
+    },
 
-  const { image, title, tags, subtitle } = props.card
+    noMargin: {
+      type: Boolean,
+      default: false,
+      required: false
+    },
+
+    stretchHorizontally: {
+      type: Boolean,
+      default: true,
+      required: false
+    },
+  });
+
+  const { image, title, tags, subtitle, link } = props.card
 
 </script>
 
 <template>
-  <div v-if="large" 
-       class="card-radius overflow-hidden flex flex-col lg:flex-row items-stretch bg-white gap-t shadow"
+  <div v-if="large"
+       :class="{'gap-t': noMargin === false, 'lg:flex-row items-stretch': stretchHorizontally}"
+       class="card-radius overflow-hidden flex flex-col bg-white shadow"
   >
-    <div class="overflow-hidden basis-6/12">
+    <div class="basis-6/12">
       <img
         :src="image"
         alt="thumbnail"
         class="w-full h-full object-cover"
       />
     </div>
+
     <div class="padding-x padding-y gap-sm flex flex-col gap-sm basis-6/12">
-      <p class="subheading-2">
+      <a :href="link" class="subheading-2">
         {{ title }}
-      </p>
-      <p class="body-2">
+      </a>
+
+      <p v-if="subtitle" class="body-2">
         {{ subtitle }}
       </p>
+
       <div class="flex items-center gap-xs">
-        <p class="button-1 text-primary">Read More</p>
+        <a :href="link" class="button-1 text-primary">Read More</a>
         <i class="fill-current text-primary" v-html="icons.arrow_right"></i>
       </div>
     </div>
@@ -46,24 +62,26 @@
   <div v-else 
        class="card-radius overflow-hidden bg-white shadow"
   >
-    <div class="h-40 overflow-hidden">
+    <div class="h-40">
       <img
         :src="image"
         alt="thumbnail"
         class="w-full h-full object-cover"
       />
     </div>
+
     <div class="padding-x padding-y gap-sm flex flex-col gap-sm">
       <div>
-        <span class="bg-gray-100 rounded-full px-2 py-0.5 inline-block">
+        <span v-if="tags" class="bg-gray-100 rounded-full px-2 py-0.5 inline-block">
           {{ tags }}
-        </span
-        >
+        </span>
       </div>
+
       <div class="flex justify-between gap-xs">
         <p class="bullet-2">
           {{ title }}
         </p>
+
         <i v-html="icons.arrow_right"></i>
       </div>
     </div>
