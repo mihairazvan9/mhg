@@ -15,10 +15,6 @@ import TheHeader from "../components/TheHeader.vue";
 import Breadcrumb from "../components/Breadcrumb.vue";
 
 import TheTable from "../components/TheTable.vue";
-import TextImage from "@/components/Table/TextImage.vue"
-import Text from "@/components/Table/Text.vue"
-import TextCTA from "@/components/Table/TextCTA.vue"
-import TextButton from "@/components/Table/TextButton.vue"
 
 const table = ref({
   
@@ -26,53 +22,39 @@ const table = ref({
     {
       rows: [
         {
-          data: {
-            title: 'Chase Freedom Wallet',
-            src: CardLogo,
-            alt: 'Card image'
-          }      
+          title: 'Chase Freedom Wallet',
+          src: CardLogo,
+          alt: 'Card image'
         },
         
         {
-          data: { 
-            title: 'S$ 0'
-          }       
+          title: 'S$ 0'
         },
 
         {
-          data: { 
-            title: 'S$ 30,000',
-            tooltip: 'Infos',
-          }       
+          title: 'S$ 30,000',
+          tooltip: 'Infos',
         },
 
         {
-          data: { 
-            title: '2',
-            subtitle: 'visits per year*',
-            tooltip: 'Infos',
-          }       
+          title: '2',
+          subtitle: 'visits per year*',
+          tooltip: 'Infos',
         },
 
         {
-          data: { 
-            title: '2',
-            subtitle: 'miles per dollar',
-          }       
+          title: '2',
+          subtitle: 'miles per dollar',
         },
 
         {
-          data: { 
-            title: 'Intro Offer: 50 miles',
-            no: '8',
-          }       
+          title: 'Intro Offer: 50 miles',
+          no: '8',
         },
 
         {
-          data: { 
-            title: 'On Chase’s Website',
-            link: '#',
-          }       
+          title: 'On Chase’s Website',
+          link: '#',
         },
 
       ],
@@ -102,53 +84,39 @@ const table = ref({
     {
       rows: [
         {
-          data: {
-            title: 'Chase Freedom Wallet',
-            src: CardLogo,
-            alt: 'Card image'
-          }      
+          title: 'Chase Freedom Wallet',
+          src: CardLogo,
+          alt: 'Card image'
         },
         
         {
-          data: { 
-            title: 'S$ 0'
-          }       
+          title: 'S$ 0'
         },
 
         {
-          data: { 
-            title: 'S$ 30,000',
-            tooltip: 'Infos',
-          }       
+          title: 'S$ 30,000',
+          tooltip: 'Infos',
         },
 
         {
-          data: { 
-            title: '2',
-            subtitle: 'visits per year*',
-            tooltip: 'Infos',
-          }       
+          title: '2',
+          subtitle: 'visits per year*',
+          tooltip: 'Infos',
         },
 
         {
-          data: { 
-            title: '2',
-            subtitle: 'miles per dollar',
-          }       
+          title: '2',
+          subtitle: 'miles per dollar',
         },
 
         {
-          data: { 
-            title: 'Intro Offer: 50 miles',
-            no: '6',
-          }       
+          title: 'Intro Offer: 50 miles',
+          no: '6',
         },
 
         {
-          data: { 
-            title: 'On Chase’s Website',
-            link: '#',
-          }       
+          title: 'On Chase’s Website',
+          link: '#',
         },
 
       ],

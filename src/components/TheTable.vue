@@ -1,11 +1,11 @@
 <script setup>
   import { ref, markRaw, onMounted } from 'vue'
 
-  import Rewards from "@/components/Table/Rewards.vue"
-  import TextImage from "@/components/Table/TextImage.vue"
-  import Text from "@/components/Table/Text.vue"
-  import TextCTA from "@/components/Table/TextCTA.vue"
-  import TextButton from "@/components/Table/TextButton.vue"
+  import TableRewards from "@/components/Table/TableRewards.vue"
+  import TableImage from "@/components/Table/TableImage.vue"
+  import TableText from "@/components/Table/TableText.vue"
+  import TableCTA from "@/components/Table/TableCTA.vue"
+  import TableButton from "@/components/Table/TableButton.vue"
 
   const props = defineProps({
     table: {
@@ -15,37 +15,37 @@
   })
 
   const active_reward = ref(0)
+  const scrollable = ref(null)
 
   let is_dragging = false
   let startX
   let scroll_left
   
   onMounted(() => {
-    const scrollable_div = document.getElementById('table-container')
 
-    scrollable_div.addEventListener('mousedown', (e) => {
+    scrollable.value.addEventListener('mousedown', (e) => {
       is_dragging = true
-      startX = e.pageX - scrollable_div.offsetLeft
-      scroll_left = scrollable_div.scrollLeft
-      scrollable_div.style.cursor = 'grabbing'
+      startX = e.pageX - scrollable.value.offsetLeft
+      scroll_left = scrollable.value.scrollLeft
+      scrollable.value.style.cursor = 'grabbing'
     })
 
-    scrollable_div.addEventListener('mouseleave', () => {
+    scrollable.value.addEventListener('mouseleave', () => {
       is_dragging = false
-      scrollable_div.style.cursor = 'grab'
+      scrollable.value.style.cursor = 'grab'
     })
 
-    scrollable_div.addEventListener('mouseup', () => {
+    scrollable.value.addEventListener('mouseup', () => {
       is_dragging = false
-      scrollable_div.style.cursor = 'grab'
+      scrollable.value.style.cursor = 'grab'
     })
 
-    scrollable_div.addEventListener('mousemove', (e) => {
+    scrollable.value.addEventListener('mousemove', (e) => {
       if (!is_dragging) return
       e.preventDefault()
-      const x = e.pageX - scrollable_div.offsetLeft
+      const x = e.pageX - scrollable.value.offsetLeft
       const walk = (x - startX) * 1 // Adjust the multiplier
-      scrollable_div.scrollLeft = scroll_left - walk
+      scrollable.value.scrollLeft = scroll_left - walk
     })
   })
 
@@ -60,19 +60,19 @@
   const header = ['Credit Card', 'Annual Fee', 'Minimum Annual Income', 'Airport Lounge Access', 'Credit Card Rewards', 'Offers & Rewards', 'Apply on the Provider’s Website' ]
 
   const components = [
-    markRaw(TextImage),
-    markRaw(Text),
-    markRaw(Text),
-    markRaw(Text),
-    markRaw(Text),
-    markRaw(TextCTA),
-    markRaw(TextButton)
+    markRaw(TableImage),
+    markRaw(TableText),
+    markRaw(TableText),
+    markRaw(TableText),
+    markRaw(TableText),
+    markRaw(TableCTA),
+    markRaw(TableButton)
   ]
 </script>
 
 <template>
   <div class="gap-t card-radius overflow-hidden relative select-none ">
-    <div id="table-container">
+    <div ref="scrollable" class="table-container">
       <table class="min-w-[1024px] w-full bg-white">
         <thead class="text-left contents">
           <th 
@@ -96,7 +96,7 @@
 
                 <component 
                   :is="components[cellIndex]" 
-                  :data="cell.data"
+                  :data="cell"
                   :reward_id="rowIndex"
                   @handle-open-rewards="handle_open_reward"
                 />
@@ -112,7 +112,7 @@
                     <component 
                       v-if="cellIndex >= 5"
                       :is="components[cellIndex]"
-                      :data="cell.data"
+                      :data="cell"
                       :reward_id="rowIndex"
                       @handle-open-rewards="handle_open_reward"
                     />
@@ -127,7 +127,7 @@
               v-show="active_reward === rowIndex"
             >
               <td colspan="7" class="flex relative">
-                <Rewards :data="row.rewards" :index="rowIndex" />
+                <TableRewards :data="row.rewards" :index="rowIndex" />
               </td>
             </tr>
 
@@ -139,33 +139,35 @@
 </template>
 
 <style scoped>
-  #table-container {
+  .table-container {
     overflow-x: auto;
     width: 100%;
     position: relative; 
   }
 
-  #table-container::-webkit-scrollbar {
+  .table-container::-webkit-scrollbar {
     display: none; 
   }
 
-  #table-container {
+  .table-container {
     -ms-overflow-style: none; 
     scrollbar-width: none; 
   }
 
-  #table-container table {
+  .table-container table {
     display: grid;
     grid-template-columns: repeat(5, minmax(auto, 1fr));
   }
 
+  .table-container [colspan="7"] {
+    grid-column: 1 / -1;
+  }
+
   @media (min-width: 768px) {
-    #table-container table {
+    .table-container table {
       grid-template-columns: repeat(7, minmax(auto, 1fr));
     }
   }
 
-  #table-container [colspan="7"] {
-    grid-column: 1 / -1;
-  }
+
 </style>

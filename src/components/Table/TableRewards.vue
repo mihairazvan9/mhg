@@ -1,5 +1,5 @@
 <script setup>
-  import { ref, onMounted, watch } from 'vue'
+  import { ref } from 'vue'
   import { icons } from '@/assets/icons.js'
 
   const props = defineProps({
@@ -13,11 +13,12 @@
     },
   })
 
-  const showLeftButton = ref(false);
-  const showRightButton = ref(true);
+  const scrollable = ref(null)
+  const showLeftButton = ref(false)
+  const showRightButton = ref(true)
 
   function scroll_left () {
-    document.getElementById(`rewards-scrollable-${props.index}`).scrollBy({
+    scrollable.value.scrollBy({
       left: -300,
       behavior: 'smooth'
     })
@@ -26,7 +27,7 @@
   }
 
   function scroll_right () {
-    document.getElementById(`rewards-scrollable-${props.index}`).scrollBy({
+    scrollable.value.scrollBy({
       left: 300,
       behavior: 'smooth'
     })
@@ -35,18 +36,16 @@
   }
 
   function updateScrollButtons() {
-    const scrollElement = document.getElementById(`rewards-scrollable-${props.index}`)
+    const scrollElement = scrollable.value
     showLeftButton.value = scrollElement.scrollLeft > 0;
     showRightButton.value = scrollElement.scrollLeft + 
                             scrollElement.clientWidth < scrollElement.scrollWidth - 10;
   }
 
-
-
 </script>
 
 <template>
-  <div  class="padding-x padding-y card-radius relative w-full border-gray-300">
+  <div class="padding-x padding-y card-radius relative w-full border-gray-300">
     <span class="bullet-2">Rewards to choose from</span>
     <button 
       v-if="showLeftButton" 
@@ -55,7 +54,7 @@
       <i v-html="icons.arrow_right"></i>
     </button>
 
-      <div :id="`rewards-scrollable-${props.index}`" class="rewards-scrollable flex flex-row gap-4 overflow-hidden">
+      <div ref="scrollable" class="rewards-scrollable flex flex-row gap-4 overflow-hidden">
         <template v-for="reward in props.data">
           <a :href="props.data.link" class="cursor-pointer">
             <div class="flex flex-row gap-2 p-3 h-32 w-max bg-gray-100 rounded-xl">

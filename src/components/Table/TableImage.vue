@@ -12,7 +12,7 @@
     <div class="w-28">
       <img :src="props.data.src" :alt="props.data.alt || 'Singsave'">
     </div>
-    <p class="body-2 !text-gray-900">
+    <p v-if="props.data.title" class="body-2 !text-gray-900">
       {{ props.data.title }}
     </p>
   </div>
