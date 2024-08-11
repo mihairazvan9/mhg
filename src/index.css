@@ -139,6 +139,9 @@
   .padding-x-sm{
     @apply px-3 xl:px-4;
   }
+  .padding-l-sm {
+    @apply pl-3 xl:pl-4;
+  }
   .padding-y-sm{
     @apply py-3 xl:py-4;
   }

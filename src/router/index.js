@@ -3,6 +3,7 @@ import HomeView from '@/views/HomeView.vue';
 import ArticleView from "@/views/ArticleView.vue";
 import NavbarView from "@/views/NavbarView.vue";
 import PersonalLoansView from "@/views/PersonalLoansView.vue";
+import PersonalLoansComparisonView from "@/views/PersonalLoansComparisonView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -29,6 +30,11 @@ const router = createRouter({
       path: '/personal-loans',
       name: 'personal-loans',
       component: PersonalLoansView,
+    },
+    {
+      path: '/personal-loans-comparison',
+      name: 'personal-loans-comparison',
+      component: PersonalLoansComparisonView,
     },
     {
       path: '/navbar-page',
