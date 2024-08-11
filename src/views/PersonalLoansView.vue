@@ -2,10 +2,6 @@
 import { icons } from '../assets/icons';
 import {ref} from "vue";
 
-import ImgAuthor from "../assets/img/author.png";
-import IconX from "../assets/img/x.svg";
-import IconMail from "../assets/img/mail.svg";
-import CardLogo from "../assets/img/card-1.png";
 import ArrowRight from "../assets/img/arrow-right.svg";
 import CreditCardPlaceholderImage from "@/assets/img/credit-card-placeholder.png";
 import ContractBlueAlt from "@/assets/img/contract-blue-alt.png";
@@ -15,11 +11,9 @@ import ArticleThumbOne from "../assets/img/article-thumb-1.png";
 import PromoImage from "../assets/img/promo.png";
 
 import TheWrapper from "../components/TheWrapper.vue"
-import OfferCard from "../components/OfferCard.vue";
 import TheFooter from "../components/TheFooter.vue";
 import TheHeader from "../components/TheHeader.vue";
 import Breadcrumb from "../components/Breadcrumb.vue";
-import TheTable from "../components/TheTable.vue";
 import Card from "../components/Card.vue";
 import Faqs from "../components/Faqs.vue";
 import TheButton from "../components/TheButton.vue";
