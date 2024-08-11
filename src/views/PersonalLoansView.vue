@@ -1,26 +1,28 @@
 <script setup>
 import { icons } from '../assets/icons';
+import {ref} from "vue";
+
 import ImgAuthor from "../assets/img/author.png";
 import IconX from "../assets/img/x.svg";
 import IconMail from "../assets/img/mail.svg";
 import CardLogo from "../assets/img/card-1.png";
+import ArrowRight from "../assets/img/arrow-right.svg";
+import CreditCardPlaceholderImage from "@/assets/img/credit-card-placeholder.png";
+import ContractBlueAlt from "@/assets/img/contract-blue-alt.png";
+import VideoPlaceholder from "@/assets/img/video-placeholder.jpg";
+import SofiPartnerLogo from "@/assets/img/sofi-logo.png";
+import ArticleThumbOne from "../assets/img/article-thumb-1.png";
+import PromoImage from "../assets/img/promo.png";
+
 import TheWrapper from "../components/TheWrapper.vue"
 import OfferCard from "../components/OfferCard.vue";
 import TheFooter from "../components/TheFooter.vue";
 import TheHeader from "../components/TheHeader.vue";
 import Breadcrumb from "../components/Breadcrumb.vue";
 import TheTable from "../components/TheTable.vue";
-import ArrowRight from "../assets/img/arrow-right.svg";
 import Card from "../components/Card.vue";
-import CreditCardPlaceholderImage from "@/assets/img/credit-card-placeholder.png";
-import ContractBlueAlt from "@/assets/img/contract-blue-alt.png";
-import VideoPlaceholder from "@/assets/img/video-placeholder.jpg";
-import SofiPartnerLogo from "@/assets/img/sofi-logo.png";
-import {ref} from "vue";
 import Faqs from "../components/Faqs.vue";
 import TheButton from "../components/TheButton.vue";
-import ArticleThumbOne from "../assets/img/article-thumb-1.png";
-import PromoImage from "../assets/img/promo.png";
 
 const placeholder_breadcrumb = [
   {
@@ -255,7 +257,7 @@ var isHeaderContentVisible = ref(true);
         </TheWrapper>
 
         <TheWrapper title="From our partners">
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-4 pt-2">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 padding-x pt-2">
             <div
                 v-for="(partner, index) in partners"
                 :key="index"
@@ -277,7 +279,7 @@ var isHeaderContentVisible = ref(true);
         </TheWrapper>
 
         <TheWrapper title="Featured Video">
-          <div class="px-4">
+          <div class="padding-x">
             <div
                 class="flex flex-col md:flex-row gap-md"
             >
@@ -302,11 +304,11 @@ var isHeaderContentVisible = ref(true);
         <TheWrapper simple title="Relevant Article">
           <section class="pb-3 bg-white shadow card-radius">
             <div class="flex flex-col gap-md">
-              <div class="flex items-center justify-center overflow-hidden rounded-t-lg max-h-[200px]">
+              <div class="flex items-center justify-center overflow-hidden rounded-t-2xl max-h-[200px]">
                 <img :src="ArticleThumbOne" alt="VideoPicture" class="self-stretch w-full object-cover"/>
               </div>
 
-              <div class="px-4">
+              <div class="padding-x">
                 <div class="flex flex-col md:flex-row gap-md">
                   <div class="flex flex-col gap-xs">
                     <h3 class="subheading-2">Best Credit Cards of 2024</h3>
@@ -348,7 +350,7 @@ var isHeaderContentVisible = ref(true);
         <TheWrapper simple title="">
           <section class="bg-white shadow card-radius">
             <div class="flex flex-col gap-md">
-              <div class="px-4 py-4">
+              <div class="padding-x py-4">
                 <div class="flex flex-col md:flex-row md:justify-around gap-md">
                   <div class="mb-8 md:mb-0 flex flex-col items-center">
                     <h3 class="display-1 text-center mb-2">Share it with your friends.</h3>
