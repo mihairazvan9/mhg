@@ -20,8 +20,15 @@
             <RouterLink to="/article-page" class="text-lg font-bold leading-normal">
               Article Page
             </RouterLink>
+          </li>
+          <li>
             <RouterLink to="/navbar-page" class="text-lg font-bold leading-normal ml-6">
               Try Navbar
+            </RouterLink>
+          </li>
+          <li>
+            <RouterLink to="/personal-loans" class="text-lg font-bold leading-normal ml-6">
+              Personal Loans
             </RouterLink>
           </li>
           <!-- <li>
