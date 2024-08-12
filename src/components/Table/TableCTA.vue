@@ -8,7 +8,7 @@
       required: true
     },
 
-    reward_id: {
+    reward_no: {
       type: Number,
       required: true
     },
@@ -19,10 +19,10 @@
   ])
 
   function handle_open_reward () {
-    emits('handle-open-rewards', props.reward_id)
+    emits('handle-open-rewards', 
+      props.reward_no // Just for FE
+    )
   }
-
-
 </script>
 
 <template>
@@ -38,15 +38,13 @@
 
     <div class="inline-block md:hidden body-2 ">
       <TheButton 
-        @handle-click="handle_open_reward" 
+        @handle-click="handle_open_reward()" 
         :title="`View Rewards (${ props.data.no })`"
-        :icon="icons.diamond"
         background="bg-white"
         outline="border-primary"
         color="text-primary"
       />
     </div>
-
   </div>
 </template>
 

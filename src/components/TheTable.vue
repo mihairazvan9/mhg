@@ -1,18 +1,26 @@
 <script setup>
   import { ref, markRaw, onMounted } from 'vue'
+  import { icons } from "@/assets/icons"
 
+  import TheButton from "@/components/TheButton.vue"
   import TableRewards from "@/components/Table/TableRewards.vue"
-  import TableImage from "@/components/Table/TableImage.vue"
-  import TableText from "@/components/Table/TableText.vue"
-  import TableCTA from "@/components/Table/TableCTA.vue"
-  import TableButton from "@/components/Table/TableButton.vue"
+
 
   const props = defineProps({
     table: {
       type: Object,
       required: true
+    },
+    header: {
+      type: Array,
+      required: true
+    },
+    components: {
+      type: Array,
+      required: true
     }
   })
+
 
   const active_reward = ref(0)
   const scrollable = ref(null)
@@ -49,34 +57,27 @@
     })
   })
 
-  function handle_open_reward (reward_id) {
-    if (active_reward.value === reward_id)  {
+  function handle_open_rewards (row_no) {
+    if (active_reward.value === row_no)  {
       active_reward.value = -1
     } else {
-      active_reward.value = reward_id
+      active_reward.value = row_no
     }
   }
 
-  const header = ['Credit Card', 'Annual Fee', 'Minimum Annual Income', 'Airport Lounge Access', 'Credit Card Rewards', 'Offers & Rewards', 'Apply on the Provider’s Website' ]
+  function handle_close_rewards () {
+    active_reward.value = -1
+  }
 
-  const components = [
-    markRaw(TableImage),
-    markRaw(TableText),
-    markRaw(TableText),
-    markRaw(TableText),
-    markRaw(TableText),
-    markRaw(TableCTA),
-    markRaw(TableButton)
-  ]
 </script>
 
 <template>
-  <div class="gap-t card-radius overflow-hidden relative select-none ">
+  <div class="gap-t card-radius overflow-hidden relative select-none shadow">
     <div ref="scrollable" class="table-container">
       <table class="min-w-[1024px] w-full bg-white">
         <thead class="text-left contents">
           <th 
-            v-for="(tab, index) in header"
+            v-for="(tab, index) in props.header"
             class="flex items-center subheading-2 padding-x padding-y bg-gray-100"
             :class="{'hidden md:flex': index >= header.length - 2}"
           >
@@ -95,10 +96,10 @@
               >
 
                 <component 
-                  :is="components[cellIndex]" 
+                  :is="props.components[cellIndex]" 
                   :data="cell"
-                  :reward_id="rowIndex"
-                  @handle-open-rewards="handle_open_reward"
+                  :reward_no="rowIndex"
+                  @handle-open-rewards="handle_open_rewards"
                 />
 
               </td>
@@ -111,23 +112,32 @@
                   <template v-for="(cell, cellIndex) in row.rows">
                     <component 
                       v-if="cellIndex >= 5"
-                      :is="components[cellIndex]"
+                      :is="props.components[cellIndex]"
                       :data="cell"
-                      :reward_id="rowIndex"
-                      @handle-open-rewards="handle_open_reward"
+                      :reward_no="rowIndex"
+                      @handle-open-rewards="handle_open_rewards"
                     />
                   </template>
                 </div>
               </td>
 
             </tr>
-
+            <!-- can we do this to be sticky when table is -->
             <tr 
-              class="bg-white contents" 
+              class="contents" 
               v-show="active_reward === rowIndex"
             >
-              <td colspan="7" class="flex relative">
-                <TableRewards :data="row.rewards" :index="rowIndex" />
+
+              <td 
+                colspan="7" 
+                class="flex bg-primary-light padding-x padding-y"
+              >
+                <TableRewards 
+                  :data="row.rewards" 
+                  :index="rowIndex"
+                  @handle-close-rewards="handle_close_rewards"
+                />
+     
               </td>
             </tr>
 

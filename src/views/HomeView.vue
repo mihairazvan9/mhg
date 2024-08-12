@@ -1,5 +1,6 @@
 <script setup>
 import { ref, markRaw, onMounted } from 'vue'
+
 import rewardImg from '@/assets/img/airunes1.png'
 import SiteLogo from "../assets/img/singsaver.svg";
 import MenuLine from "../assets/img/menu-line.svg";
@@ -15,6 +16,24 @@ import TheHeader from "../components/TheHeader.vue";
 import Breadcrumb from "../components/Breadcrumb.vue";
 
 import TheTable from "../components/TheTable.vue";
+import TableImage from "@/components/Table/TableImage.vue"
+import TableText from "@/components/Table/TableText.vue"
+import TableCTA from "@/components/Table/TableCTA.vue"
+import TableButton from "@/components/Table/TableButton.vue"
+
+// We can keep the header and cell components only in FE side, 
+// on the parent page, to be able to customize other tables easily
+const header = ['Credit Card', 'Annual Fee', 'Minimum Annual Income', 'Airport Lounge Access', 'Credit Card Rewards', 'Offers & Rewards', 'Apply on the Provider’s Website' ]
+
+const components = [
+  markRaw(TableImage),
+  markRaw(TableText),
+  markRaw(TableText),
+  markRaw(TableText),
+  markRaw(TableText),
+  markRaw(TableCTA),
+  markRaw(TableButton)
+]
 
 const table = ref({
   
@@ -49,7 +68,7 @@ const table = ref({
 
         {
           title: 'Intro Offer: 50 miles',
-          no: '8',
+          no: '3',
         },
 
         {
@@ -59,26 +78,15 @@ const table = ref({
 
       ],
 
-      rewards:[
-          {
-            link: '#',
-            title: 'Dyson Supersonic™ hair dryer (worth S$699)',
-            subtitle: 'T&Cs apply',
-            image: rewardImg
-          },
-          {
-            link: '#',
-            title: 'Dyson Supersonic™ hair dryer (worth S$699)',
-            subtitle: 'T&Cs apply',
-            image: rewardImg
-          },
-          {
-            link: '#',
-            title: 'Dyson Supersonic™ hair dryer (worth S$699)',
-            subtitle: 'T&Cs apply',
-            image: rewardImg
-          },
-      ]
+      rewards: {
+        requiresAuthentication: true,
+        authenticationLink: '#',
+        list: [
+          'Apple iPad 10th Gen WiFi 64GB (worth S$529);',
+          'Dyson Supersonic™ hair dryer (worth S$699);',
+          'Samsonite Straren Spinner 67/24 + 2x Apple AirTag worth S$690.80;'
+        ]
+      }
     },
 
     {
@@ -111,7 +119,7 @@ const table = ref({
 
         {
           title: 'Intro Offer: 50 miles',
-          no: '6',
+          no: '3',
         },
 
         {
@@ -121,30 +129,21 @@ const table = ref({
 
       ],
 
-      rewards:[
-          {
-            link: '#',
-            title: 'Dyson Supersonic™ hair dryer (worth S$699)',
-            subtitle: 'T&Cs apply',
-            image: rewardImg
-          },
-          {
-            link: '#',
-            title: 'Dyson Supersonic™ hair dryer (worth S$699)',
-            subtitle: 'T&Cs apply',
-            image: rewardImg
-          },
-          {
-            link: '#',
-            title: 'Dyson Supersonic™ hair dryer (worth S$699)',
-            subtitle: 'T&Cs apply',
-            image: rewardImg
-          },
-      ]
+      rewards: {
+        requiresAuthentication: true,
+        authenticationLink: '#',
+        list: [
+          'Apple iPad 10th Gen WiFi 64GB (worth S$529);',
+          'Dyson Supersonic™ hair dryer (worth S$699);',
+          'Samsonite Straren Spinner 67/24 + 2x Apple AirTag worth S$690.80;'
+        ]
+      }
     },
 
   ]
 })
+
+
 
 const bestOffers = [
   {
@@ -244,7 +243,11 @@ const placeholder_breadcrumb = [
     </div>
 
     <TheWrapper full title="Best Travel Cards of August 2024">
-      <TheTable :table="table" />
+      <TheTable 
+        :table="table"
+        :header
+        :components
+      />
     </TheWrapper>
 
     <div class="mx-auto max-w-screen-2xl px-6 xl:px-10">
