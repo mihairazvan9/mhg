@@ -130,7 +130,7 @@
 
               <td 
                 colspan="7" 
-                class="flex bg-primary-light padding-x padding-y"
+                class="flex relative bg-primary-light padding-x padding-y"
               >
                 <TableRewards 
                   :data="row.rewards" 

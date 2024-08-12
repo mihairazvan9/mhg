@@ -128,21 +128,16 @@ const sectionVisible = ref({
 
     <ul class="bg-white rounded-b-2xl xl:rounded-b-3xl">
       <li>
-        <div class="padding-x padding-y-sm flex flex-col gap-md bg-primary-light">
+        <div class="padding-x padding-y flex flex-col gap-md bg-primary-light">
           <div
               class="flex items-center justify-between gap-md cursor-pointer"
               @click.prevent="sectionVisible.rewards = !sectionVisible.rewards"
           >
             <div class="flex items-center">
-              <h4 class="subheading-2 text-primary">Gifts & rewards</h4>
+              <h4 class="subheading-2 text-primary">Eligible rewards ({{ value.rewards.length }})</h4>
             </div>
 
             <div class="flex items-center gap-md">
-              <div class="flex items-center subheading-2 text-primary">
-                <span>{{ value.rewards.length }} rewards</span>
-                <img :src="IconDiamond" alt="reward" class="icon-xs ml-1"/>
-              </div>
-
               <button
                   :class="['transition-rotate overflow-hidden', {'active': sectionVisible.rewards }]"
               >
@@ -166,7 +161,7 @@ const sectionVisible = ref({
       </li>
 
       <li>
-        <div class="padding-x padding-y-sm flex flex-col gap-md">
+        <div class="padding-x padding-y flex flex-col gap-md">
           <div
               class="flex items-center justify-between gap-md cursor-pointer"
               @click.prevent="sectionVisible.cardDetails = !sectionVisible.cardDetails"
@@ -201,7 +196,7 @@ const sectionVisible = ref({
       </li>
 
       <li class="border-t">
-        <div class="padding-x padding-y-sm flex flex-col gap-md">
+        <div class="padding-x padding-y flex flex-col gap-md">
           <div
               class="flex items-center justify-between gap-md cursor-pointer"
               @click.prevent="sectionVisible.expertAdvice = !sectionVisible.expertAdvice"

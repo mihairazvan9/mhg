@@ -20,26 +20,26 @@
 </script>
 
 <template>
-  <div class="flex flex-col gap-4 w-full">
-    <div class="flex justify-between">
-      <p class="button-1 text-primary">
+  <div class="flex flex-col w-full">
+    <div 
+      class="flex justify-between cursor-pointer"
+      @click="handle_close_rewards"
+    >
+      <p class="subheading-2 text-primary">
         Eligible rewards ({{ props.data.list.length }})
       </p>
-      <i 
-        v-html="icons.close"
-        @click="handle_close_rewards"
-      ></i>
+      <i v-html="icons.close"></i>
     </div>
-    <ul class="list-disc padding-x body-2">
-      <template v-for="list in props.data.list">
-        <li>{{ list }}</li>
+    <ul class="list-disc padding-x padding-y ">
+      <template v-for="reward in props.data.list">
+        <li class="body-2">{{ reward }}</li>
       </template>
     </ul>
 
     <a 
       v-if="data.requiresAuthentication"
       :href="data.authenticationLink" 
-      class="button-1 text-primary uppercase underline"
+      class="uppercase bullet-2 text-primary underline md:text-lg"
     >
       Sign-in required
     </a>
