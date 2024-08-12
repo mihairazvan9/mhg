@@ -122,7 +122,6 @@
               </td>
 
             </tr>
-            <!-- can we do this to be sticky when table is -->
             <tr 
               class="contents" 
               v-show="active_reward === rowIndex"

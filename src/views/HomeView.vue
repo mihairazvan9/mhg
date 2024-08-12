@@ -15,133 +15,62 @@ import TheFooter from "../components/TheFooter.vue";
 import TheHeader from "../components/TheHeader.vue";
 import Breadcrumb from "../components/Breadcrumb.vue";
 
-import TheTable from "../components/TheTable.vue";
-import TableImage from "@/components/Table/TableImage.vue"
-import TableText from "@/components/Table/TableText.vue"
-import TableCTA from "@/components/Table/TableCTA.vue"
-import TableButton from "@/components/Table/TableButton.vue"
+import ProductComparisonTable from "@/components/ProductComparisonTable.vue";
 
-// We can keep the header and cell components only in FE side, 
-// on the parent page, to be able to customize other tables easily
-const header = ['Credit Card', 'Annual Fee', 'Minimum Annual Income', 'Airport Lounge Access', 'Credit Card Rewards', 'Offers & Rewards', 'Apply on the Provider’s Website' ]
+const table = ref([
+  {
+    rows: [
+      {
+        title: 'Chase Freedom Wallet',
+        src: CardLogo,
+        alt: 'Card image'
+      },
+      
+      {
+        title: 'S$ 0'
+      },
 
-const components = [
-  markRaw(TableImage),
-  markRaw(TableText),
-  markRaw(TableText),
-  markRaw(TableText),
-  markRaw(TableText),
-  markRaw(TableCTA),
-  markRaw(TableButton)
+      {
+        title: 'S$ 30,000',
+        tooltip: 'Infos',
+      },
+
+      {
+        title: '2',
+        subtitle: 'visits per year*',
+        tooltip: 'Infos',
+      },
+
+      {
+        title: '2',
+        subtitle: 'miles per dollar',
+      },
+
+      {
+        title: 'Intro Offer: 50 miles',
+        no_of_rewards: '3',
+      },
+
+      {
+        title: 'On Chase’s Website',
+        link: '#',
+      },
+
+    
+    ],
+
+    rewards: {
+      requiresAuthentication: true,
+      authenticationLink: '#',
+      list: [
+        'Apple iPad 10th Gen WiFi 64GB (worth S$529);',
+        'Dyson Supersonic™ hair dryer (worth S$699);',
+        'Samsonite Straren Spinner 67/24 + 2x Apple AirTag worth S$690.80;'
+      ]
+    }
+  },
 ]
-
-const table = ref({
-  
-  body: [
-    {
-      rows: [
-        {
-          title: 'Chase Freedom Wallet',
-          src: CardLogo,
-          alt: 'Card image'
-        },
-        
-        {
-          title: 'S$ 0'
-        },
-
-        {
-          title: 'S$ 30,000',
-          tooltip: 'Infos',
-        },
-
-        {
-          title: '2',
-          subtitle: 'visits per year*',
-          tooltip: 'Infos',
-        },
-
-        {
-          title: '2',
-          subtitle: 'miles per dollar',
-        },
-
-        {
-          title: 'Intro Offer: 50 miles',
-          no: '3',
-        },
-
-        {
-          title: 'On Chase’s Website',
-          link: '#',
-        },
-
-      ],
-
-      rewards: {
-        requiresAuthentication: true,
-        authenticationLink: '#',
-        list: [
-          'Apple iPad 10th Gen WiFi 64GB (worth S$529);',
-          'Dyson Supersonic™ hair dryer (worth S$699);',
-          'Samsonite Straren Spinner 67/24 + 2x Apple AirTag worth S$690.80;'
-        ]
-      }
-    },
-
-    {
-      rows: [
-        {
-          title: 'Chase Freedom Wallet',
-          src: CardLogo,
-          alt: 'Card image'
-        },
-        
-        {
-          title: 'S$ 0'
-        },
-
-        {
-          title: 'S$ 30,000',
-          tooltip: 'Infos',
-        },
-
-        {
-          title: '2',
-          subtitle: 'visits per year*',
-          tooltip: 'Infos',
-        },
-
-        {
-          title: '2',
-          subtitle: 'miles per dollar',
-        },
-
-        {
-          title: 'Intro Offer: 50 miles',
-          no: '3',
-        },
-
-        {
-          title: 'On Chase’s Website',
-          link: '#',
-        },
-
-      ],
-
-      rewards: {
-        requiresAuthentication: true,
-        authenticationLink: '#',
-        list: [
-          'Apple iPad 10th Gen WiFi 64GB (worth S$529);',
-          'Dyson Supersonic™ hair dryer (worth S$699);',
-          'Samsonite Straren Spinner 67/24 + 2x Apple AirTag worth S$690.80;'
-        ]
-      }
-    },
-
-  ]
-})
+)
 
 
 
@@ -243,10 +172,8 @@ const placeholder_breadcrumb = [
     </div>
 
     <TheWrapper full title="Best Travel Cards of August 2024">
-      <TheTable 
+      <ProductComparisonTable 
         :table="table"
-        :header
-        :components
       />
     </TheWrapper>
 
